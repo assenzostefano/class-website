@@ -129,3 +129,8 @@ a:logo {
     right : 20px;
   }
   .orarioscuola {max-width: 100%}
+
+.theme-dark {
+  --color-background: #30110d;
+  -color: #f2bc94;
+}
