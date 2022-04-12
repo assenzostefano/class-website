@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <head>
+
+<!-- Per rendere la pagina responsive -->
+
     <meta name="viewport" content="width=device-width">
+
+<!-- Animazione pulsanti -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+<!-- File css -->
+
     <link rel="stylesheet" href="https://1elci.it/style.css" type="text/css" media="all" />
+
+<!-- Icona nella barra del browser / Favicon -->
+
     <link rel="apple-touch-icon" sizes="57x57" href="https://1elci.it/Favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="https://1elci.it/Favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="https://1elci.it/Favicon/apple-icon-72x72.png">
@@ -19,37 +31,46 @@
     <link rel="manifest" href="https://1elci.it/Favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff"> 
+    <meta name="theme-color" content="#ffffff">
+
 </head>
+
 <body>
-    <div align=”center”>
-    <br>
-    <br>
+
+<!-- Titolo nella barra del browser -->
+
     <title>1 Elci - Orario</title>
+
+<!-- Pulsante per tornare alla home -->
+
     <center><a href="https://1elci.it">Home</a></center>
+
+<!-- Vari spazi-->
+
     <br>
     <br>
     <br>
+
+<!-- Immagine orario -->
+
     <center><img class="orarioscuola" src="https://1elci.it/orario/orario.png"></center>
-    <script>
-		
-		var rwd_images = { 
-			widthBreakPoint: 600
-		};
-	</script>
+
+<!-- Script per riadattare l'immagine in base al dispositivo -->
+
 <script src="https://1elci.it/responsiveimgs.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-		body { font-family: Helvetica, sans-serif; color: #eee; margin: 50px auto; padding: 0 20px; max-width: 980px; }
-		img { border: 0; width: 100%; display:block max-width: 1000%; }
-		
-	</style>
+
+<!-- Pulsante per switchare alla dark mode o light mode -->
 
     <div class="container">
         <input class="container_toggle" type="checkbox" id="switch" name="mode">
         <label for="switch">Toggle</label>
     </div>
-    <script  src="https://1elci.it/function.js"></script>
+
+<!-- Script per far funzionare l'animazione e per far funzionare lo switch light e dark -->
+
+<script  src="https://1elci.it/function.js"></script>
+
 </div>
 </body>
 </html>
