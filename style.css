@@ -134,3 +134,18 @@ a:logo {
   --color-background: #30110d;
   -color: #f2bc94;
 }
+
+.download-orario {
+  background: #2ab1ce;
+  position: absolute;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
