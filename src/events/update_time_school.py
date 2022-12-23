@@ -13,7 +13,7 @@ for row in range (1, 100):
         if cell.value == "2elci":
             print(ws.cell(row=cell.row, column=column).value)
             print(cell.row, column)
-            #Search school subject
+            #Search school time table
             for i in range(4,50):
                 print(ws.cell(row=i, column=column).value)
             for i in range(4, 55):
