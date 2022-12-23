@@ -9,17 +9,14 @@
 </head>
 <body>
     <canvas class="background"></canvas>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
-    <!-- Logo center -->
-    <center>
-        <img src="static/images/assets/logo.png">
-    </center>
-    <!-- Orario - Calendario -->
-    <div class="orario">
-        <a href="/orario"><img src="static/images/assets/orario_logo.png", width = "150"></a>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+    particlesJS.load("particles-js", "{{ url_for('static', filename='particles.json') }}",
+    function(){
+    console.log("particles.json has loaded");
+});
+</script>
 
-        <a href="/calendario"><img src="static/images/assets/calendario_logo.png", width = "150"></a>
-    </div>
 
 </body>
 </html>
