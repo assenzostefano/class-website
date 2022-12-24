@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect, session, url_for
+from src.script import api_test
+from flask import Flask, render_template, request, redirect, session, url_for, jsonify
 import requests
 import os
 
@@ -21,5 +22,11 @@ def orario():
 def calendario():
     return render_template('html/calendario.html')
 
+@app.route('/api', methods = ['GET', 'POST'])
+def api():
+    if(request.method == 'GET'):
+        data = "hello world"
+        return jsonify({'data': data})
+        
 if __name__ == '__main__':
    app.run()
