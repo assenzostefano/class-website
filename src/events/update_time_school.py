@@ -13,6 +13,9 @@ mongo_url = "mongodb+srv://elci:" + urllib.parse.quote_plus(PASSWORD_MONGODB) + 
 client = pymongo.MongoClient(mongo_url) #Connect to MongoDB
 database = client["website-class"] #Database name
 collection = database["school-time-table"]
+collection_archive = database["archive-school-time-table"]
+
+x = collection.delete_many({})
 
 #using read_excel() method to read our excel file and storing the same in the variable named "df "
 workbook = xl.load_workbook(filename="test.xlsx")
@@ -25,14 +28,14 @@ month = str(current_time.month)
 year = str(current_time.year)
 hour = str(current_time.hour)
 minute = str(current_time.minute)
-second = str(current_time.second)
-long_date = day + "-" + month + "-" + year + " " + hour + ":" + minute + ":" + second
+long_date = day + "-" + month + "-" + year + " " + hour + ":" + minute
 mydict = { 
     "Date": long_date,
     "School Subject": [],
     "Teacher": [],
 }
 x = collection.insert_one(mydict)
+x = collection_archive.insert_one(mydict)
 
 for row in range (1, 100):
     # column B ~ column F
@@ -48,30 +51,64 @@ for row in range (1, 100):
                     array_username = find_document_username[0]["_id"]
                     collection.update_one(
                         { "_id": ObjectId(array_username)},
-                        {
-                            "$push": { "School Subject": "null" }
-                        })
+                            {
+                                "$push": { "School Subject": "null" }
+                            }
+                        )
+                    collection_archive.update_one(
+                        { "_id": ObjectId(array_username)},
+                            {
+                                "$push": { "School Subject": str(remove_things_in_front) }
+                            }
+                        )
                 else:
                     remove_things_in_front = school_subject.split(' ', 1)[1]
                     find_document_username = list(collection.find({}, {"Date": long_date}))
                     array_username = find_document_username[0]["_id"]
                     collection.update_one(
                         { "_id": ObjectId(array_username)},
-                        {
-                            "$push": { "School Subject": str(remove_things_in_front) }
-                        })
+                            {
+                                "$push": { "School Subject": str(remove_things_in_front) }
+                            }
+                        )
+                    collection_archive.update_one(
+                        { "_id": ObjectId(array_username)},
+                            {
+                                "$push": { "School Subject": str(remove_things_in_front) }
+                            }
+                        )
                         
             #Search teacher
             for i in range(4, 80):
                 teacher = ws.cell(row=i, column=column+1).value
                 column = column
                 if teacher == 0:
-                    pass
+                    find_document_username = list(collection.find({}, {"Date": long_date}))
+                    array_username = find_document_username[0]["_id"]
+                    collection.update_one(
+                        { "_id": ObjectId(array_username)},
+                            {
+                                "$push": { "Teacher": "null" }
+                            }
+                        )
+                    collection_archive.update_one(
+                        { "_id": ObjectId(array_username)},
+                            {
+                                "$push": { "Teacher": teacher }
+                            }
+                        )
                 else:
                     find_document_username = list(collection.find({}, {"Date": long_date}))
                     array_username = find_document_username[0]["_id"]
                     collection.update_one(
                         { "_id": ObjectId(array_username)},
-                        {
-                            "$push": { "Teacher": teacher }
-                        })
+                            {
+                                "$push": { "Teacher": teacher }
+                            }
+                        )
+                    collection_archive.update_one(
+                        { "_id": ObjectId(array_username)},
+                            {
+                                "$push": { "Teacher": teacher }
+                            }
+                        )

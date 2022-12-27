@@ -26,53 +26,99 @@ def api():
     year = str(current_time.year)
     hour = str(current_time.hour)
     minute = str(current_time.minute)
-    long_date = day + "-" + month + "-" + year + hour + ":" + minute
-    collection_find_username = list(collection.find({}, {"Date": long_date ,"School Subject": 1,}))
-    array_username = collection_find_username[0]['School Subject']
+    long_date = day + "-" + month + "-" + year + " " + hour + ":" + minute
+    #Search school subject
+    collection_find_schoolsubject = list(collection.find({}, {"Date": long_date ,"School Subject": 1,}))
+    array_schoolsubject = collection_find_schoolsubject[0]['School Subject']
+    #Search teacher
+    collection_find_teacher = list(collection.find({}, {"Date": long_date ,"Teacher": 1,}))
+    array_teacher = collection_find_teacher[0]['Teacher']
 
     test = {
             "subject" : {
                 "monday": {
-                    "Subject 1": array_username[0],
-                    "Subject 2": array_username[1],
-                    "Subject 3": array_username[2],
-                    "Subject 4": array_username[3],
-                    "Subject 5": array_username[4],
-                    "Subject 6": array_username[5],
+                    "Subject 1": array_schoolsubject[0],
+                    "Subject 2": array_schoolsubject[1],
+                    "Subject 3": array_schoolsubject[2],
+                    "Subject 4": array_schoolsubject[3],
+                    "Subject 5": array_schoolsubject[4],
+                    "Subject 6": array_schoolsubject[5],
                 },
                 "tuesday": {
-                    "Subject 1": array_username[14],
-                    "Subject 2": array_username[15],
-                    "Subject 3": array_username[16],
-                    "Subject 4": array_username[17],
-                    "Subject 5": array_username[18],
-                    "Subject 6": array_username[19],
+                    "Subject 1": array_schoolsubject[14],
+                    "Subject 2": array_schoolsubject[15],
+                    "Subject 3": array_schoolsubject[16],
+                    "Subject 4": array_schoolsubject[17],
+                    "Subject 5": array_schoolsubject[18],
+                    "Subject 6": array_schoolsubject[19],
                 },
                 "wednesday": {
-                    "Subject 1": array_username[12],
-                    "Subject 2": array_username[13],
-                    "Subject 3": array_username[14],
-                    "Subject 4": array_username[15],
-                    "Subject 5": array_username[16],
-                    "Subject 6": array_username[17],
+                    "Subject 1": array_schoolsubject[12],
+                    "Subject 2": array_schoolsubject[13],
+                    "Subject 3": array_schoolsubject[14],
+                    "Subject 4": array_schoolsubject[15],
+                    "Subject 5": array_schoolsubject[16],
+                    "Subject 6": array_schoolsubject[17],
                 },
                 "thursday": {
-                    "Subject 1": array_username[28],
-                    "Subject 2": array_username[29],
-                    "Subject 3": array_username[30],
-                    "Subject 4": array_username[31],
-                    "Subject 5": array_username[32],
-                    "Subject 6": array_username[33],
+                    "Subject 1": array_schoolsubject[28],
+                    "Subject 2": array_schoolsubject[29],
+                    "Subject 3": array_schoolsubject[30],
+                    "Subject 4": array_schoolsubject[31],
+                    "Subject 5": array_schoolsubject[32],
+                    "Subject 6": array_schoolsubject[33],
                 },
                 "friday": {
-                    "Subject 1": array_username[42],
-                    "Subject 2": array_username[43],
-                    "Subject 3": array_username[44],
-                    "Subject 4": array_username[45],
-                    "Subject 5": array_username[46],
-                    "Subject 6": array_username[47],
-                }
-            }
+                    "Subject 1": array_schoolsubject[42],
+                    "Subject 2": array_schoolsubject[43],
+                    "Subject 3": array_schoolsubject[44],
+                    "Subject 4": array_schoolsubject[45],
+                    "Subject 5": array_schoolsubject[46],
+                    "Subject 6": array_schoolsubject[47],
+                },
+            },
+            "teacher": {
+                "monday": {
+                    "Teacher 1": array_teacher[0],
+                    "Teacher 2": array_teacher[1],
+                    "Teacher 3": array_teacher[2],
+                    "Teacher 4": array_teacher[3],
+                    "Teacher 5": array_teacher[4],
+                    "Teacher 6": array_teacher[5],
+                },
+                "tuesday": {
+                    "Teacher 1": array_teacher[14],
+                    "Teacher 2": array_teacher[15],
+                    "Teacher 3": array_teacher[16],
+                    "Teacher 4": array_teacher[17],
+                    "Teacher 5": array_teacher[18],
+                    "Teacher 6": array_teacher[19],
+                },
+                "wednesday": {
+                    "Teacher 1": array_teacher[28],
+                    "Teacher 2": array_teacher[29],
+                    "Teacher 3": array_teacher[30],
+                    "Teacher 4": array_teacher[31],
+                    "Teacher 5": array_teacher[32],
+                    "Teacher 6": array_teacher[33],
+                },
+                "thursday": {
+                    "Teacher 1": array_teacher[42],
+                    "Teacher 2": array_teacher[43],
+                    "Teacher 3": array_teacher[44],
+                    "Teacher 4": array_teacher[45],
+                    "Teacher 5": array_teacher[46],
+                    "Teacher 6": array_teacher[47],
+                },
+                "friday": {
+                    "Teacher 1": array_teacher[56],
+                    "Teacher 2": array_teacher[57],
+                    "Teacher 3": array_teacher[58],
+                    "Teacher 4": array_teacher[59],
+                    "Teacher 5": array_teacher[60],
+                    "Teacher 6": array_teacher[61],
+                },
+            },
         }
 
     return jsonify(test)
