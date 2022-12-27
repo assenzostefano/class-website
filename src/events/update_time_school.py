@@ -23,15 +23,17 @@ current_time = datetime.datetime.now()
 day = str(current_time.day)
 month = str(current_time.month)
 year = str(current_time.year)
-si = day + "-" + month + "-" + year
+hour = str(current_time.hour)
+minute = str(current_time.minute)
+second = str(current_time.second)
+long_date = day + "-" + month + "-" + year + " " + hour + ":" + minute + ":" + second
 mydict = { 
-    "Date": si,
+    "Date": long_date,
     "School Subject": [],
     "Teacher": [],
 }
 x = collection.insert_one(mydict)
 
-# row 4
 for row in range (1, 100):
     # column B ~ column F
     for column in range (1, 100):
@@ -42,7 +44,7 @@ for row in range (1, 100):
             for i in range(4,80):
                 school_subject = ws.cell(row=i, column=column).value
                 if school_subject == 0:
-                    find_document_username = list(collection.find({}, {"Date": si}))
+                    find_document_username = list(collection.find({}, {"Date": long_date}))
                     array_username = find_document_username[0]["_id"]
                     collection.update_one(
                         { "_id": ObjectId(array_username)},
@@ -51,7 +53,7 @@ for row in range (1, 100):
                         })
                 else:
                     remove_things_in_front = school_subject.split(' ', 1)[1]
-                    find_document_username = list(collection.find({}, {"Date": si}))
+                    find_document_username = list(collection.find({}, {"Date": long_date}))
                     array_username = find_document_username[0]["_id"]
                     collection.update_one(
                         { "_id": ObjectId(array_username)},
@@ -66,7 +68,7 @@ for row in range (1, 100):
                 if teacher == 0:
                     pass
                 else:
-                    find_document_username = list(collection.find({}, {"Date": si}))
+                    find_document_username = list(collection.find({}, {"Date": long_date}))
                     array_username = find_document_username[0]["_id"]
                     collection.update_one(
                         { "_id": ObjectId(array_username)},
