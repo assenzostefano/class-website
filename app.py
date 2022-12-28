@@ -1,6 +1,7 @@
-from src.script import api_test
-from flask import Flask, render_template, request, redirect, session, url_for, jsonify
+#from src.script import api_test
+from flask import Flask, render_template, request, session, jsonify
 import requests
+import bcrypt
 import os
 
 app = Flask(__name__)
@@ -16,12 +17,15 @@ def homepage():
 
 @app.route('/orario')
 def orario():
-    return render_template('html/orario.html')
+    if 'username' in session:
+        return "You are logged in as " + session['username']
+    #return render_template('html/orario.html')
 
 @app.route('/calendario')
 def calendario():
     return render_template('html/calendario.html')
 
+# Da sistemare
 @app.route('/api', methods = ['GET', 'POST'])
 def api():
     if(request.method == 'GET'):

@@ -5,6 +5,7 @@ import pymongo
 import os
 import datetime
 from bson.objectid import ObjectId
+import os
 
 load_dotenv() #Load .env file
 PASSWORD_MONGODB = os.getenv('PASSWORD_MONGODB') #Password for MongoDB
@@ -58,7 +59,7 @@ for row in range (1, 100):
                     collection_archive.update_one(
                         { "_id": ObjectId(array_username)},
                             {
-                                "$push": { "School Subject": str(remove_things_in_front) }
+                                "$push": { "School Subject": "null" }
                             }
                         )
                 else:
