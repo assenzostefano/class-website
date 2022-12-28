@@ -1,4 +1,3 @@
-#from src.script import api_test
 from flask import Flask, render_template, request, session, jsonify
 import requests
 import bcrypt
