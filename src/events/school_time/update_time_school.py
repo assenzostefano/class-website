@@ -19,7 +19,7 @@ collection_archive = database["archive-school-time-table"]
 x = collection.delete_many({})
 
 #using read_excel() method to read our excel file and storing the same in the variable named "df "
-workbook = xl.load_workbook(filename="test.xlsx")
+workbook = xl.load_workbook(filename="school_time.xlsx")
 
 ws = workbook.active
 
@@ -63,19 +63,19 @@ for row in range (1, 100):
                             }
                         )
                 else:
-                    remove_things_in_front = school_subject.split(' ', 1)[1]
+                    #remove_things_in_front = school_subject.split(' ', 1)[1]
                     find_document_username = list(collection.find({}, {"Date": long_date}))
                     array_username = find_document_username[0]["_id"]
                     collection.update_one(
                         { "_id": ObjectId(array_username)},
                             {
-                                "$push": { "School Subject": str(remove_things_in_front) }
+                                "$push": { "School Subject": school_subject }
                             }
                         )
                     collection_archive.update_one(
                         { "_id": ObjectId(array_username)},
                             {
-                                "$push": { "School Subject": str(remove_things_in_front) }
+                                "$push": { "School Subject": school_subject }
                             }
                         )
                         
@@ -113,3 +113,5 @@ for row in range (1, 100):
                                 "$push": { "Teacher": teacher }
                             }
                         )
+
+os.remove("school_time.xlsx")
