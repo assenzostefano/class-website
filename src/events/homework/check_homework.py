@@ -7,11 +7,9 @@ from selenium.webdriver.common.by import By
 from selenium import webdriver
 
 # Libraries for MongoDB and .env file
-from pymongo import MongoClient
 from dotenv import load_dotenv
 import urllib.parse
 import pymongo
-import time
 import os
 
 #Load .env file
@@ -35,59 +33,61 @@ def giorno_cinque():
     try:
         date = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[1]"))).text) # Date
         description = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/p"))).text) # Homework 1 or no homework
-        school_subject = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li/h2"))).text) # School subject 1
         mydict = { 
         "Date": date,
-        "School Subject": school_subject,
+        "School Subject": "No school subject",
         "Description": description,
         }
 
         x = collection.insert_one(mydict) # Insert data in MongoDB
+        school_subject = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li/h2"))).text) # School subject 1
+        new_school_subject = {"$set": {"School Subject": school_subject}} # Update school subject
+        collection.update_one(mydict, new_school_subject) # Update school subject
         try:
             school_subject_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # School subject 1
             description_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # Homework 1
-            mydict = { 
+            mydict1 = { 
                 "Date": date,
                 "School Subject": school_subject_1,
                 "Description": description_1,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict1) # Insert data in MongoDB
 
             school_subject_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/h2"))).text) # School subject 2
             description_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/div/ul/li/p"))).text) # Homework 2
-            mydict = { 
+            mydict2 = { 
                 "Date": date,
                 "School Subject": school_subject_2,
                 "Description": description_2,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict2) # Insert data in MongoDB
 
             school_subject_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/h2"))).text) # School subject 3
             description_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text) # Homework 3
-            mydict = { 
+            mydict3 = { 
                 "Date": date,
                 "School Subject": school_subject_3,
                 "Description": description_3,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict3) # Insert data in MongoDB
 
             school_subject_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/h2"))).text) # School subject 4
             description_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text) # Homework 4
-            mydict = { 
+            mydict4 = { 
                 "Date": date,
                 "School Subject": school_subject_4,
                 "Description": description_4,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict4) # Insert data in MongoDB
 
             school_subject_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/h2"))).text) # School subject 5
             description_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text) # Homework 5
-            mydict = { 
+            mydict5 = { 
                 "Date": date,
                 "School Subject": school_subject_5,
                 "Description": description_5,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict5) # Insert data in MongoDB
 
         except TimeoutException:
             WebDriverWait(driver, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]"))).click() # Click on next day button
@@ -96,48 +96,48 @@ def giorno_cinque():
         try:
             school_subject_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/h2"))).text) # School subject 1
             description_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # Homework 1
-            mydict = { 
+            mydict6 = { 
                 "Date": date,
                 "School Subject": school_subject_1,
                 "Description": description_1,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict6) # Insert data in MongoDB
 
             school_subject_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/h2"))).text) # School subject 2
             description_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/div/ul/li/p"))).text) # Homework 2
-            mydict = { 
+            mydict7 = { 
                 "Date": date,
                 "School Subject": school_subject_2,
                 "Description": description_2,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict7) # Insert data in MongoDB
 
             school_subject_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/h2"))).text) # School subject 3
             description_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text) # Homework 3
-            mydict = { 
+            mydict8 = { 
                 "Date": date,
                 "School Subject": school_subject_3,
                 "Description": description_3,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict8) # Insert data in MongoDB
 
             school_subject_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/h2"))).text) # School subject 4
             description_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text) # Homework 4
-            mydict = { 
+            mydict9 = { 
                 "Date": date,
                 "School Subject": school_subject_4,
                 "Description": description_4,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict9) # Insert data in MongoDB
 
             school_subject_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/h2"))).text) # School subject 5
             description_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text) # Homework 5
-            mydict = { 
+            mydict10 = { 
                 "Date": date,
                 "School Subject": school_subject_5,
                 "Description": description_5,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict10) # Insert data in MongoDB
         except TimeoutException:
             WebDriverWait(driver, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]"))).click() # Click on next day button
             driver.close()
@@ -147,59 +147,61 @@ def giorno_quattro():
     try:
         date = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[1]"))).text) # Date
         description = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/p"))).text) # Homework 1 or no homework
-        school_subject = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li/h2"))).text) # School subject 1
         mydict = { 
         "Date": date,
-        "School Subject": school_subject,
+        "School Subject": "No school subject",
         "Description": description,
         }
 
         x = collection.insert_one(mydict) # Insert data in MongoDB
+        school_subject = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li/h2"))).text) # School subject 1
+        new_school_subject = {"$set": {"School Subject": school_subject}} # Update school subject
+        collection.update_one(mydict, new_school_subject) # Update school subject
         try:
             school_subject_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # School subject 1
             description_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # Homework 1
-            mydict = { 
+            mydict1 = { 
                 "Date": date,
                 "School Subject": school_subject_1,
                 "Description": description_1,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict1) # Insert data in MongoDB
 
             school_subject_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/h2"))).text) # School subject 2
             description_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/div/ul/li/p"))).text) # Homework 2
-            mydict = { 
+            mydict2 = { 
                 "Date": date,
                 "School Subject": school_subject_2,
                 "Description": description_2,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict2) # Insert data in MongoDB
 
             school_subject_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/h2"))).text) # School subject 3
             description_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text) # Homework 3
-            mydict = { 
+            mydict3 = { 
                 "Date": date,
                 "School Subject": school_subject_3,
                 "Description": description_3,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict3) # Insert data in MongoDB
 
             school_subject_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/h2"))).text) # School subject 4
             description_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text) # Homework 4
-            mydict = { 
+            mydict4 = { 
                 "Date": date,
                 "School Subject": school_subject_4,
                 "Description": description_4,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict4) # Insert data in MongoDB
 
             school_subject_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/h2"))).text) # School subject 5
             description_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text) # Homework 5
-            mydict = { 
+            mydict5 = { 
                 "Date": date,
                 "School Subject": school_subject_5,
                 "Description": description_5,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict5) # Insert data in MongoDB
 
         except TimeoutException:
             WebDriverWait(driver, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]"))).click() # Click on next day button
@@ -208,48 +210,48 @@ def giorno_quattro():
         try:
             school_subject_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/h2"))).text) # School subject 1
             description_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # Homework 1
-            mydict = { 
+            mydict6 = { 
                 "Date": date,
                 "School Subject": school_subject_1,
                 "Description": description_1,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict6) # Insert data in MongoDB
 
             school_subject_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/h2"))).text) # School subject 2
             description_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/div/ul/li/p"))).text) # Homework 2
-            mydict = { 
+            mydict7 = { 
                 "Date": date,
                 "School Subject": school_subject_2,
                 "Description": description_2,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict7) # Insert data in MongoDB
 
             school_subject_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/h2"))).text) # School subject 3
             description_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text) # Homework 3
-            mydict = { 
+            mydict8 = { 
                 "Date": date,
                 "School Subject": school_subject_3,
                 "Description": description_3,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict8) # Insert data in MongoDB
 
             school_subject_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/h2"))).text) # School subject 4
             description_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text) # Homework 4
-            mydict = { 
+            mydict9 = { 
                 "Date": date,
                 "School Subject": school_subject_4,
                 "Description": description_4,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict9) # Insert data in MongoDB
 
             school_subject_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/h2"))).text) # School subject 5
             description_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text) # Homework 5
-            mydict = { 
+            mydict10 = { 
                 "Date": date,
                 "School Subject": school_subject_5,
                 "Description": description_5,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict10) # Insert data in MongoDB
         except TimeoutException:
             WebDriverWait(driver, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]"))).click() # Click on next day button
             giorno_cinque()
@@ -259,59 +261,61 @@ def giorno_tre():
     try:
         date = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[1]"))).text) # Date
         description = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/p"))).text) # Homework 1 or no homework
-        school_subject = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li/h2"))).text) # School subject 1
         mydict = { 
         "Date": date,
-        "School Subject": school_subject,
+        "School Subject": "No school subject",
         "Description": description,
         }
 
         x = collection.insert_one(mydict) # Insert data in MongoDB
+        school_subject = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li/h2"))).text) # School subject 1
+        new_school_subject = {"$set": {"School Subject": school_subject}} # Update school subject
+        collection.update_one(mydict, new_school_subject) # Update school subject
         try:
             school_subject_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # School subject 1
             description_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # Homework 1
-            mydict = { 
+            mydict1 = { 
                 "Date": date,
                 "School Subject": school_subject_1,
                 "Description": description_1,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict1) # Insert data in MongoDB
 
             school_subject_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/h2"))).text) # School subject 2
             description_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/div/ul/li/p"))).text) # Homework 2
-            mydict = { 
+            mydict2 = { 
                 "Date": date,
                 "School Subject": school_subject_2,
                 "Description": description_2,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict2) # Insert data in MongoDB
 
             school_subject_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/h2"))).text) # School subject 3
             description_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text) # Homework 3
-            mydict = { 
+            mydict3 = { 
                 "Date": date,
                 "School Subject": school_subject_3,
                 "Description": description_3,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict3) # Insert data in MongoDB
 
             school_subject_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/h2"))).text) # School subject 4
             description_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text) # Homework 4
-            mydict = { 
+            mydict4 = { 
                 "Date": date,
                 "School Subject": school_subject_4,
                 "Description": description_4,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict4) # Insert data in MongoDB
 
             school_subject_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/h2"))).text) # School subject 5
             description_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text) # Homework 5
-            mydict = { 
+            mydict5 = { 
                 "Date": date,
                 "School Subject": school_subject_5,
                 "Description": description_5,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict5) # Insert data in MongoDB
 
         except TimeoutException:
             WebDriverWait(driver, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]"))).click() # Click on next day button
@@ -320,48 +324,48 @@ def giorno_tre():
         try:
             school_subject_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/h2"))).text) # School subject 1
             description_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # Homework 1
-            mydict = { 
+            mydict6 = { 
                 "Date": date,
                 "School Subject": school_subject_1,
                 "Description": description_1,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict6) # Insert data in MongoDB
 
             school_subject_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/h2"))).text) # School subject 2
             description_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/div/ul/li/p"))).text) # Homework 2
-            mydict = { 
+            mydict7 = { 
                 "Date": date,
                 "School Subject": school_subject_2,
                 "Description": description_2,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict7) # Insert data in MongoDB
 
             school_subject_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/h2"))).text) # School subject 3
             description_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text) # Homework 3
-            mydict = { 
+            mydict8 = { 
                 "Date": date,
                 "School Subject": school_subject_3,
                 "Description": description_3,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict8) # Insert data in MongoDB
 
             school_subject_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/h2"))).text) # School subject 4
             description_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text) # Homework 4
-            mydict = { 
+            mydict9 = { 
                 "Date": date,
                 "School Subject": school_subject_4,
                 "Description": description_4,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict9) # Insert data in MongoDB
 
             school_subject_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/h2"))).text) # School subject 5
             description_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text) # Homework 5
-            mydict = { 
+            mydict10 = { 
                 "Date": date,
                 "School Subject": school_subject_5,
                 "Description": description_5,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict10) # Insert data in MongoDB
         except TimeoutException:
             WebDriverWait(driver, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]"))).click() # Click on next day button
             giorno_quattro()
@@ -371,59 +375,61 @@ def giorno_due():
     try:
         date = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[1]"))).text) # Date
         description = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/p"))).text) # Homework 1 or no homework
-        school_subject = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li/h2"))).text) # School subject 1
         mydict = { 
         "Date": date,
-        "School Subject": school_subject,
+        "School Subject": "No school subject",
         "Description": description,
         }
 
         x = collection.insert_one(mydict) # Insert data in MongoDB
+        school_subject = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li/h2"))).text) # School subject 1
+        new_school_subject = {"$set": {"School Subject": school_subject}} # Update school subject
+        collection.update_one(mydict, new_school_subject) # Update school subject
         try:
             school_subject_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # School subject 1
             description_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # Homework 1
-            mydict = { 
+            mydict1 = { 
                 "Date": date,
                 "School Subject": school_subject_1,
                 "Description": description_1,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict1) # Insert data in MongoDB
 
             school_subject_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/h2"))).text) # School subject 2
             description_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/div/ul/li/p"))).text) # Homework 2
-            mydict = { 
+            mydict2 = { 
                 "Date": date,
                 "School Subject": school_subject_2,
                 "Description": description_2,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict2) # Insert data in MongoDB
 
             school_subject_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/h2"))).text) # School subject 3
             description_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text) # Homework 3
-            mydict = { 
+            mydict3 = { 
                 "Date": date,
                 "School Subject": school_subject_3,
                 "Description": description_3,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict3) # Insert data in MongoDB
 
             school_subject_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/h2"))).text) # School subject 4
             description_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text) # Homework 4
-            mydict = { 
+            mydict4 = { 
                 "Date": date,
                 "School Subject": school_subject_4,
                 "Description": description_4,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict4) # Insert data in MongoDB
 
             school_subject_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/h2"))).text) # School subject 5
             description_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text) # Homework 5
-            mydict = { 
+            mydict5 = { 
                 "Date": date,
                 "School Subject": school_subject_5,
                 "Description": description_5,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict5) # Insert data in MongoDB
 
         except TimeoutException:
             WebDriverWait(driver, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]"))).click() # Click on next day button
@@ -432,48 +438,48 @@ def giorno_due():
         try:
             school_subject_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/h2"))).text) # School subject 1
             description_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # Homework 1
-            mydict = { 
+            mydict6 = { 
                 "Date": date,
                 "School Subject": school_subject_1,
                 "Description": description_1,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict6) # Insert data in MongoDB
 
             school_subject_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/h2"))).text) # School subject 2
             description_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/div/ul/li/p"))).text) # Homework 2
-            mydict = { 
+            mydict7 = { 
                 "Date": date,
                 "School Subject": school_subject_2,
                 "Description": description_2,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict7) # Insert data in MongoDB
 
             school_subject_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/h2"))).text) # School subject 3
             description_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text) # Homework 3
-            mydict = { 
+            mydict8 = { 
                 "Date": date,
                 "School Subject": school_subject_3,
                 "Description": description_3,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict8) # Insert data in MongoDB
 
             school_subject_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/h2"))).text) # School subject 4
             description_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text) # Homework 4
-            mydict = { 
+            mydict9 = { 
                 "Date": date,
                 "School Subject": school_subject_4,
                 "Description": description_4,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict9) # Insert data in MongoDB
 
             school_subject_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/h2"))).text) # School subject 5
             description_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text) # Homework 5
-            mydict = { 
+            mydict10 = { 
                 "Date": date,
                 "School Subject": school_subject_5,
                 "Description": description_5,
             }
-            x = collection.insert_one(mydict) # Insert data in MongoDB
+            x = collection.insert_one(mydict10) # Insert data in MongoDB
         except TimeoutException:
             WebDriverWait(driver, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]"))).click() # Click on next day button
             giorno_tre()
@@ -498,14 +504,16 @@ def giorno_uno():
     try:
         date = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[1]"))).text) # Date
         description = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/p"))).text) # Homework 1 or no homework
-        school_subject = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li/h2"))).text) # School subject 1
         mydict = { 
         "Date": date,
-        "School Subject": school_subject,
+        "School Subject": "No school subject",
         "Description": description,
         }
 
         x = collection.insert_one(mydict) # Insert data in MongoDB
+        school_subject = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li/h2"))).text) # School subject 1
+        new_school_subject = {"$set": {"School Subject": school_subject}} # Update school subject
+        collection.update_one(mydict, new_school_subject) # Update school subject
         try:
             school_subject_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # School subject 1
             description_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # Homework 1
