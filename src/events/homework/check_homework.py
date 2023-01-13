@@ -9,6 +9,7 @@ from selenium import webdriver
 # Libraries for MongoDB and .env file
 from dotenv import load_dotenv
 import urllib.parse
+import datetime
 import pymongo
 import os
 
@@ -32,14 +33,28 @@ def giorno_cinque():
     #Giorno cinque
     try:
         date = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[1]"))).text) # Date
+        split_date = date.split() # Split date
         description = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/p"))).text) # Homework 1 or no homework
-        mydict = { 
-        "Date": date,
-        "School Subject": "No school subject",
-        "Description": description,
-        }
+        mydict = {
+                    "subjects": [
+                    {
+                        "name": "No school subject",
+                        "homework": [
+                        {
+                            "date": {
+                            "day": split_date[0],
+                            "month": split_date[1],
+                            "year": split_date[2],
+                        },
+                    "description": description,
+                    }
+                ]
+            }
+        ]
+    },
 
-        x = collection.insert_one(mydict) # Insert data in MongoDB
+        x = collection.insert_many(mydict) # Insert data in MongoDB
+
         school_subject = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li/h2"))).text) # School subject 1
         new_school_subject = {"$set": {"School Subject": school_subject}} # Update school subject
         collection.update_one(mydict, new_school_subject) # Update school subject

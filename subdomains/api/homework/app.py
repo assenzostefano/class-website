@@ -18,16 +18,5 @@ app = Flask(__name__)
 def get_homework():
     homework = collection.find({}, {"_id": 0})
     return jsonify(list(homework))
-
 if __name__ == '__main__': 
    app.run()
-
-#{
-#  "date": {
-#    "day": 12,
-#    "month": 1,
-#    "year": 2023
-#  },
-#  "description": "Per le vacanze di natale...",
-#  "subject": "Disegno"
-#}
