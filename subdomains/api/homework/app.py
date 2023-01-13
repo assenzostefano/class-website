@@ -21,3 +21,13 @@ def get_homework():
 
 if __name__ == '__main__': 
    app.run()
+
+#{
+#  "date": {
+#    "day": 12,
+#    "month": 1,
+#    "year": 2023
+#  },
+#  "description": "Per le vacanze di natale...",
+#  "subject": "Disegno"
+#}
