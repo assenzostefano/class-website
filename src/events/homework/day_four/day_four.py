@@ -19,6 +19,7 @@ def giorno_quattro(driver, collection):
                         "homework": [
                         {
                             "date": {
+                            "long date": date,
                             "day": split_date[0],
                             "month": split_date[1],
                             "year": split_date[2],
@@ -29,11 +30,13 @@ def giorno_quattro(driver, collection):
             }
         ]
     },
-
-        x = collection.insert_many(mydict) # Insert data in MongoDB
+        if collection.find({},{ "_id": 0, "long_date": date ,"name": "No school subject", "description": description }):
+            print("Homework already in database")
+        else:
+            x = collection.insert_many(mydict) # Insert data in MongoDB
 
         school_subject = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li/h2"))).text) # School subject 1
-        new_school_subject = {"$set": {"School Subject": school_subject}} # Update school subject
+        new_school_subject = {"$set": {"name": school_subject}} # Update school subject
         collection.update_one(mydict, new_school_subject) # Update school subject
         try:
             school_subject_1 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text) # School subject 1
@@ -45,6 +48,7 @@ def giorno_quattro(driver, collection):
                         "homework": [
                         {
                             "date": {
+                            "long date": date,
                             "day": split_date[0],
                             "month": split_date[1],
                             "year": split_date[2],
@@ -56,7 +60,10 @@ def giorno_quattro(driver, collection):
         ]
     },
 
-            x = collection.insert_many(mydict1) # Insert data in MongoDB
+            if collection.find({},{ "_id": 0, "long_date": date ,"name": school_subject_1, "description": description_1 }):
+                print("Homework already in database")
+            else:
+                x = collection.insert_many(mydict1) # Insert data in MongoDB
 
             school_subject_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/h2"))).text) # School subject 2
             description_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/div/ul/li/p"))).text) # Homework 2
@@ -67,6 +74,7 @@ def giorno_quattro(driver, collection):
                         "homework": [
                         {
                             "date": {
+                            "long date": date,
                             "day": split_date[0],
                             "month": split_date[1],
                             "year": split_date[2],
@@ -78,7 +86,10 @@ def giorno_quattro(driver, collection):
         ]
     },
 
-            x = collection.insert_many(mydict2) # Insert data in MongoDB
+            if collection.find({},{ "_id": 0, "long_date": date ,"name": school_subject_2, "description": description_2 }):
+                print("Homework already in database")
+            else:
+                x = collection.insert_many(mydict2) # Insert data in MongoDB
 
             school_subject_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/h2"))).text) # School subject 3
             description_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text) # Homework 3
@@ -89,6 +100,7 @@ def giorno_quattro(driver, collection):
                         "homework": [
                         {
                             "date": {
+                            "long date": date,
                             "day": split_date[0],
                             "month": split_date[1],
                             "year": split_date[2],
@@ -100,7 +112,10 @@ def giorno_quattro(driver, collection):
         ]
     },
 
-            x = collection.insert_many(mydict3) # Insert data in MongoDB
+            if collection.find({},{ "_id": 0, "long_date": date ,"name": school_subject_3, "description": description_3 }):
+                print("Homework already in database")
+            else:
+                x = collection.insert_many(mydict3) # Insert data in MongoDB
 
             school_subject_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/h2"))).text) # School subject 4
             description_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text) # Homework 4
@@ -111,6 +126,7 @@ def giorno_quattro(driver, collection):
                         "homework": [
                         {
                             "date": {
+                            "long date": date,
                             "day": split_date[0],
                             "month": split_date[1],
                             "year": split_date[2],
@@ -122,7 +138,10 @@ def giorno_quattro(driver, collection):
         ]
     },
 
-            x = collection.insert_many(mydict4) # Insert data in MongoDB
+            if collection.find({},{ "_id": 0, "long_date": date ,"name": school_subject_4, "description": description_4 }):
+                print("Homework already in database")
+            else:
+                x = collection.insert_many(mydict4) # Insert data in MongoDB
 
             school_subject_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/h2"))).text) # School subject 5
             description_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text) # Homework 5
@@ -133,6 +152,7 @@ def giorno_quattro(driver, collection):
                         "homework": [
                         {
                             "date": {
+                            "long date": date,
                             "day": split_date[0],
                             "month": split_date[1],
                             "year": split_date[2],
@@ -144,7 +164,10 @@ def giorno_quattro(driver, collection):
         ]
     },
 
-            x = collection.insert_many(mydict5) # Insert data in MongoDB
+            if collection.find({},{ "_id": 0, "long_date": date ,"name": school_subject_5, "description": description_5 }):
+                print("Homework already in database")
+            else:
+                x = collection.insert_many(mydict5) # Insert data in MongoDB
 
         except TimeoutException:
             WebDriverWait(driver, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]"))).click() # Click on next day button
@@ -160,6 +183,7 @@ def giorno_quattro(driver, collection):
                         "homework": [
                         {
                             "date": {
+                            "long date": date,
                             "day": split_date[0],
                             "month": split_date[1],
                             "year": split_date[2],
@@ -171,7 +195,10 @@ def giorno_quattro(driver, collection):
         ]
     },
 
-            x = collection.insert_many(mydict6) # Insert data in MongoDB
+            if collection.find({},{ "_id": 0, "long_date": date ,"name": school_subject_1, "description": description_1 }):
+                print("Homework already in database")
+            else:
+                x = collection.insert_many(mydict6) # Insert data in MongoDB
 
             school_subject_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/h2"))).text) # School subject 2
             description_2 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/div/ul/li/p"))).text) # Homework 2
@@ -182,6 +209,7 @@ def giorno_quattro(driver, collection):
                         "homework": [
                         {
                             "date": {
+                            "long date": date,
                             "day": split_date[0],
                             "month": split_date[1],
                             "year": split_date[2],
@@ -193,7 +221,10 @@ def giorno_quattro(driver, collection):
         ]
     },
 
-            x = collection.insert_many(mydict7) # Insert data in MongoDB
+            if collection.find({},{ "_id": 0, "long_date": date ,"name": school_subject_2, "description": description_2 }):
+                print("Homework already in database")
+            else:
+                x = collection.insert_many(mydict7) # Insert data in MongoDB
 
             school_subject_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/h2"))).text) # School subject 3
             description_3 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text) # Homework 3
@@ -204,6 +235,7 @@ def giorno_quattro(driver, collection):
                         "homework": [
                         {
                             "date": {
+                            "long date": date,
                             "day": split_date[0],
                             "month": split_date[1],
                             "year": split_date[2],
@@ -215,7 +247,10 @@ def giorno_quattro(driver, collection):
         ]
     },
 
-            x = collection.insert_many(mydict8) # Insert data in MongoDB
+            if collection.find({},{ "_id": 0, "long_date": date ,"name": school_subject_3, "description": description_3 }):
+                print("Homework already in database")
+            else:
+                x = collection.insert_many(mydict8) # Insert data in MongoDB
 
             school_subject_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/h2"))).text) # School subject 4
             description_4 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text) # Homework 4
@@ -226,6 +261,7 @@ def giorno_quattro(driver, collection):
                         "homework": [
                         {
                             "date": {
+                            "long date": date,
                             "day": split_date[0],
                             "month": split_date[1],
                             "year": split_date[2],
@@ -237,7 +273,10 @@ def giorno_quattro(driver, collection):
         ]
     },
 
-            x = collection.insert_many(mydict9) # Insert data in MongoDB
+            if collection.find({},{ "_id": 0, "long_date": date ,"name": school_subject_4, "description": description_4 }):
+                print("Homework already in database")
+            else:
+                x = collection.insert_many(mydict9) # Insert data in MongoDB
 
             school_subject_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/h2"))).text) # School subject 5
             description_5 = str(WebDriverWait(driver, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text) # Homework 5
@@ -248,6 +287,7 @@ def giorno_quattro(driver, collection):
                         "homework": [
                         {
                             "date": {
+                            "long date": date,
                             "day": split_date[0],
                             "month": split_date[1],
                             "year": split_date[2],
@@ -259,7 +299,10 @@ def giorno_quattro(driver, collection):
         ]
     },
 
-            x = collection.insert_many(mydict10) # Insert data in MongoDB
+            if collection.find({},{ "_id": 0, "long_date": date ,"name": school_subject_5, "description": description_5 }):
+                print("Homework already in database")
+            else:
+                x = collection.insert_many(mydict10) # Insert data in MongoDB
         except TimeoutException:
             WebDriverWait(driver, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]"))).click() # Click on next day button
             day_five.giorno_cinque(driver, collection)

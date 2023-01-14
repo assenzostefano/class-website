@@ -12,6 +12,7 @@ from selenium import webdriver
 from dotenv import load_dotenv
 import urllib.parse
 import pymongo
+import time
 import os
 
 #Load .env file
@@ -31,6 +32,7 @@ options.add_argument("--headless") # Headless mode (so you don't see the browser
 options.add_argument('--disable-gpu') # Disable GPU
 
 def start_search():
+    time.sleep(7200)
     global driver
     driver = webdriver.Firefox(options=options) # Open Firefox and set options
     driver.get("https://nuvola.madisoft.it/login")  # Open Nuvola website
@@ -50,9 +52,9 @@ def start_search():
     homework_check()
 
 def homework_check():
-    #Giorno uno
-    day_five.giorno_cinque(driver, collection)
+    day_one.giorno_uno(driver, collection)
     driver.close()
     start_search()
+    print("Finish")
 
 start_search()
