@@ -16,10 +16,6 @@ database = client["website-class"] #Database name
 collection = database["school-time-table"] #Collection school time table current
 collection_archive = database["archive-school-time-table"] #Collection school time table archive
 
-def recheck():
-    time.sleep(10)
-    update_time_school()
-
 def update_time_school():
     # Load excel file
     namefile_xlsx = "attachments/school_time.xlsx"
