@@ -2,3 +2,4 @@ test.xlsx
 .env
 geckodriver.log
 all.log
+__pycache__
