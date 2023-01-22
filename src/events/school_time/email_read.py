@@ -1,4 +1,3 @@
-from update_time_school import update_time_school
 from dotenv import load_dotenv
 from imbox import Imbox
 import urllib.parse
@@ -34,7 +33,6 @@ def check_email():
 
         mail = Imbox(HOST, username=USERNAME, password=PASSWORD, ssl=True, ssl_context=None, starttls=False) # Connect to IMAP Server
         messages = mail.messages(sent_from=EMAIL_SCHOOL, unread=True) # Get unread emails from school
-
         for (uid, message) in messages:
             mail.mark_seen(uid)
 
@@ -42,6 +40,7 @@ def check_email():
             for idx, attachment in enumerate(message.attachments):
                 try:
                     att_fn = attachment.get('filename') # Get attachment filename
+                    print(att_fn)
                     download_path = f"{DOWNLOAD_FOLDER}/{att_fn}"
                     extension_file = pathlib.Path(att_fn).suffix # Get extension file
                     print(extension_file)
@@ -50,13 +49,14 @@ def check_email():
                     else:
                         if collection.find_one({"filename": att_fn}):
                             print("File already exists")
+                            recheck_email()
                         else:
                             with open(download_path, "wb") as fp:
                                 fp.write(attachment.get('content').read())
                                 os.rename(download_path, f"{DOWNLOAD_FOLDER}/school_time.xlsx") # Rename file
                                 collection.delete_many({}) # Delete old file
                                 collection.insert_one({"filename": att_fn}) # Insert filename to MongoDB
-                                update_time_school()
+                                send_xlsx()
                 except:
                     print(traceback.print_exc())
 
@@ -65,5 +65,11 @@ def check_email():
     except:
         print(traceback.print_exc())
         recheck_email()
+    
+def send_xlsx():
+    from update_time_school import update_time_school
+    update_time_school()
+    os.remove(f"{DOWNLOAD_FOLDER}/school_time.xlsx") # Delete file
+    recheck_email()
     
 check_email()

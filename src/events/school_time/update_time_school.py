@@ -17,12 +17,7 @@ database = client["website-class"] #Database name
 collection = database["school-time-table"] #Collection school time table current
 collection_archive = database["archive-school-time-table"] #Collection school time table archive
 
-number = 1
-current_day = None
-day_counter = 0
-number_day = 0
-
-def update_time_school(number, day_counter, number_day):
+def update_time_school():
     # Load excel file
     namefile_xlsx = "attachments/school_time.xlsx"
     workbook = xl.load_workbook(filename=namefile_xlsx)
@@ -258,6 +253,10 @@ def update_time_school(number, day_counter, number_day):
     dont_repeat_teacher = 0
     gagaga_teacher = 0
     number_teacher = 1
+    number = 1
+    current_day = None
+    day_counter = 0
+    number_day = 0
     #Search my class in excel file and add in MongoDB
     number = 1
     gagaga = 0
@@ -452,4 +451,4 @@ def update_time_school(number, day_counter, number_day):
                             if gagaga_teacher == 8:
                                 gagaga_teacher = 0
 
-update_time_school(number, day_counter, number_day)
+update_time_school()
