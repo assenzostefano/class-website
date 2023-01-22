@@ -1,5 +1,4 @@
 from update_time_school import update_time_school
-
 from dotenv import load_dotenv
 from imbox import Imbox
 import urllib.parse
@@ -57,7 +56,7 @@ def check_email():
                                 os.rename(download_path, f"{DOWNLOAD_FOLDER}/school_time.xlsx") # Rename file
                                 collection.delete_many({}) # Delete old file
                                 collection.insert_one({"filename": att_fn}) # Insert filename to MongoDB
-                                update_time_school() # Update school time table
+                                update_time_school()
                 except:
                     print(traceback.print_exc())
 
@@ -66,3 +65,5 @@ def check_email():
     except:
         print(traceback.print_exc())
         recheck_email()
+    
+check_email()

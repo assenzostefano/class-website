@@ -3,3 +3,5 @@ test.xlsx
 geckodriver.log
 all.log
 __pycache__
+test.py
+school_time.xlsx
