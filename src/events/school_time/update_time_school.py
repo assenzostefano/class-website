@@ -42,204 +42,252 @@ def update_time_school():
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                      "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
             ],
             "Tuesday": [
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
             ],
             "Wednesday": [
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
             ],
             "Thursday": [
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
             ],
             "Friday": [
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
             ],
             "Saturday": [
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
                 {
                     "Subject": "null",
                     "Teacher": "null",
+                    "Room": "null",
                 },
             ],
     }
@@ -249,10 +297,14 @@ def update_time_school():
     x = collection_archive.insert_one(mydict) # Add collection on collection (archive-school-time-table)
     check_repeat = 0
     check_repeat_teacher = 0
+    check_repeat_room = 0
     dont_repeat = 0
     dont_repeat_teacher = 0
+    dont_repeat_room = 0
     gagaga_teacher = 0
+    gagaga_room = 0
     number_teacher = 1
+    number_room = 1
     number = 1
     current_day = None
     day_counter = 0
@@ -270,12 +322,13 @@ def update_time_school():
                     day = str(ws.cell(row=i, column=3).value) # Get day from excel file
                     school_subject = ws.cell(row=i, column=column).value # Get school subject from excel file
                     teacher = ws.cell(row=i, column=column+1).value
+                    room = ws.cell(row=i, column=column+2).value
+                    print(room)
                     if dont_repeat == 9:
-                        check_repeat += 1 # 13
+                        check_repeat += 1
                         if check_repeat == 5:
                             check_repeat = 0
                             dont_repeat = 0
-                            #number = 1
                     else:
                         if day == "None":
                             if school_subject == 0: #If school subject is 0, add "null" in MongoDB
@@ -409,7 +462,7 @@ def update_time_school():
                                 collection_archive.update_one(
                                     { "_id": ObjectId(array_document_archive_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Subject": school_subject,
+                                        "School Subject." + array_test[0] + "." + str(gagaga_teacher)+ ".Teacher": teacher,
                                     }
                                 }
                             )
@@ -439,7 +492,7 @@ def update_time_school():
                             collection_archive.update_one(
                                     { "_id": ObjectId(array_document_archive_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Subject": school_subject,
+                                        "School Subject." + array_test[0] + "." + str(gagaga_teacher)+ ".Teacher": teacher,
                                     }
                                 }
                             )
@@ -450,5 +503,78 @@ def update_time_school():
                                 number_teacher = 1
                             if gagaga_teacher == 8:
                                 gagaga_teacher = 0
+
+                    #Search room school
+                    if dont_repeat_room == 9:
+                        check_repeat_room += 1
+                        if check_repeat_room == 5:
+                            check_repeat_room = 0
+                            dont_repeat_room = 0
+                    else:
+                        if day == "None":
+                            if room == 0:
+                                number_room += 1
+                                gagaga_room += 1
+                                dont_repeat_room += 1
+                                if number_room == 9:
+                                    number_room = 1
+                                if gagaga_room == 9:
+                                    gagaga_room = 0
+                            else:
+                                find_document_school_time_table = list(collection.find({}, {"Date": long_date}))
+                                find_document_archive_school_time_table = list(collection_archive.find({}, {"Date": long_date}))
+                                array_document_school_time_table = find_document_school_time_table[0]["_id"]
+                                array_document_archive_school_time_table = find_document_archive_school_time_table[0]["_id"]
+                                collection.update_one(
+                                    { "_id": ObjectId(array_document_school_time_table)},
+                                    { "$set": {
+                                        "School Subject." + array_test[0] + "." + str(gagaga_room) + ".Room": room,
+                                    }
+                                }
+                            )
+                                collection_archive.update_one(
+                                    { "_id": ObjectId(array_document_archive_school_time_table)},
+                                    { "$set": {
+                                        "School Subject." + array_test[0] + "." + str(gagaga_room)+ ".Room": room,
+                                    }
+                                }
+                            )
+                                number_room += 1
+                                gagaga_room += 1
+                                dont_repeat_room += 1
+                                if number_room == 9:
+                                    number_room = 1
+                                if gagaga_room == 8:
+                                    gagaga_room = 0
+                        else:
+                            datetime_obj = datetime.datetime.strptime(day, "%Y-%m-%d %H:%M:%S").strftime("%d %m %Y")
+                            convert_date_to_day = datetime.datetime.strptime(datetime_obj, '%d %m %Y').strftime('%A')
+                            array_test = []
+                            array_test.append(convert_date_to_day)
+                            find_document_school_time_table = list(collection.find({}, {"Date": long_date}))
+                            find_document_archive_school_time_table = list(collection_archive.find({}, {"Date": long_date}))
+                            array_document_school_time_table = find_document_school_time_table[0]["_id"]
+                            array_document_archive_school_time_table = find_document_archive_school_time_table[0]["_id"]
+                            collection.update_one(
+                                        { "_id": ObjectId(array_document_school_time_table)},
+                                        { "$set": {
+                                            "School Subject." + array_test[0] + "." + str(gagaga_room)+ ".Room": room,
+                                        }
+                                    }
+                                )
+                            collection_archive.update_one(
+                                    { "_id": ObjectId(array_document_archive_school_time_table)},
+                                    { "$set": {
+                                        "School Subject." + array_test[0] + "." + str(gagaga_room)+ ".Room": room,
+                                    }
+                                }
+                            )
+                            number_room += 1
+                            gagaga_room += 1
+                            dont_repeat_room += 1
+                            if number_room == 9:
+                                number_room = 1
+                            if gagaga_room == 8:
+                                gagaga_room = 0
 
 update_time_school()

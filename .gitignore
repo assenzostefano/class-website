@@ -5,3 +5,4 @@ all.log
 __pycache__
 test.py
 school_time.xlsx
+venv
