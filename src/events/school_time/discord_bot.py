@@ -24,6 +24,7 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
     bot.loop.create_task(orario())
 
+# Search on MongoDB the subject and send a message on Discord if the subject is found
 @tasks.loop(seconds=1)
 async def orario():
     documents = collection.find()
@@ -36,5 +37,9 @@ async def orario():
                     # Send a message on channel #general with the subject found and the index of the subject
                     channel = bot.get_channel(1063753802638954519)
                     await channel.send(f"Day: {day}, Hour school: {i}, Subject found: {subject['Subject']} at index: {i}")
+
+@bot.slash_command(name="first_slash", guild_ids=['1063753799874912337']) #Add the guild ids in which the slash command will appear. If it should be in all, remove the argument, but note that it will take some time (up to an hour) to register the command if it's for all guilds.
+async def first_slash(ctx): 
+    await ctx.respond("You executed the slash command!")
 
 bot.run(DISCORD_TOKEN)
