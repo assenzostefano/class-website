@@ -33,9 +33,8 @@ async def orario():
         for day in document['School Subject']:
             for i, subject in enumerate(document['School Subject'][day]):
                 if subject['Subject'] == "CALF1 LINGUA ITALIANA":
-                    print(f"Subject found: {subject['Subject']} at index: {i}")
                     # Send a message on channel #general with the subject found and the index of the subject
                     channel = bot.get_channel(1063753802638954519)
-                    await channel.send(f"Hour school: {i}, Subject found: {subject['Subject']} at index: {i}")
+                    await channel.send(f"Day: {day}, Hour school: {i}, Subject found: {subject['Subject']} at index: {i}")
 
 bot.run(DISCORD_TOKEN)
