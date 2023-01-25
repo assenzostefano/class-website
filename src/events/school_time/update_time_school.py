@@ -322,13 +322,12 @@ def update_time_school():
                     day = str(ws.cell(row=i, column=3).value) # Get day from excel file
                     school_subject = ws.cell(row=i, column=column).value # Get school subject from excel file
                     teacher = ws.cell(row=i, column=column+1).value
-                    room = ws.cell(row=i, column=column+2)
+                    room = ws.cell(row=i, column=column+2).value
                     if dont_repeat == 9:
-                        check_repeat += 1 # 13
+                        check_repeat += 1
                         if check_repeat == 5:
                             check_repeat = 0
                             dont_repeat = 0
-                            #number = 1
                     else:
                         if day == "None":
                             if school_subject == 0: #If school subject is 0, add "null" in MongoDB
@@ -462,7 +461,7 @@ def update_time_school():
                                 collection_archive.update_one(
                                     { "_id": ObjectId(array_document_archive_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Teacher": teacher,
+                                        "School Subject." + array_test[0] + "." + str(gagaga_teacher)+ ".Teacher": teacher,
                                     }
                                 }
                             )
@@ -492,7 +491,7 @@ def update_time_school():
                             collection_archive.update_one(
                                     { "_id": ObjectId(array_document_archive_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Teacher": teacher,
+                                        "School Subject." + array_test[0] + "." + str(gagaga_teacher)+ ".Teacher": teacher,
                                     }
                                 }
                             )
@@ -510,7 +509,6 @@ def update_time_school():
                         if check_repeat_room == 5:
                             check_repeat_room = 0
                             dont_repeat_room = 0
-                            #number = 1
                     else:
                         if day == "None":
                             if room == 0:
@@ -529,14 +527,14 @@ def update_time_school():
                                 collection.update_one(
                                     { "_id": ObjectId(array_document_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga_teacher) + ".Room": room,
+                                        "School Subject." + array_test[0] + "." + str(gagaga_room) + ".Room": room,
                                     }
                                 }
                             )
                                 collection_archive.update_one(
                                     { "_id": ObjectId(array_document_archive_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Room": room,
+                                        "School Subject." + array_test[0] + "." + str(gagaga_room)+ ".Room": room,
                                     }
                                 }
                             )
@@ -559,14 +557,14 @@ def update_time_school():
                             collection.update_one(
                                         { "_id": ObjectId(array_document_school_time_table)},
                                         { "$set": {
-                                            "School Subject." + array_test[0] + "." + str(gagaga_teacher)+ ".Room": room,
+                                            "School Subject." + array_test[0] + "." + str(gagaga_room)+ ".Room": room,
                                         }
                                     }
                                 )
                             collection_archive.update_one(
                                     { "_id": ObjectId(array_document_archive_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Room": room,
+                                        "School Subject." + array_test[0] + "." + str(gagaga_room)+ ".Room": room,
                                     }
                                 }
                             )
