@@ -2,9 +2,12 @@ from dotenv import load_dotenv
 from bson.objectid import ObjectId
 
 from discord.ext import tasks, commands
+from discord.commands.context import ApplicationContext
+from discord.commands import Option
 import discord
 import pymongo
 import urllib.parse
+import datetime
 import os
 
 load_dotenv()  # Load .env file
@@ -16,6 +19,15 @@ client = pymongo.MongoClient(mongo_url)  # Connect to MongoDB
 database = client["website-class"]  # Database name
 # Collection school time table current
 collection = database["school-time-table"]
+
+#Date
+current_time = datetime.datetime.now()
+day = str(current_time.day)
+month = str(current_time.month)
+year = str(current_time.year)
+hour = str(current_time.hour)
+minute = str(current_time.minute)
+long_date = day + "-" + month + "-" + year + " " + hour + ":" + minute
 
 bot = discord.Bot()
 
@@ -38,8 +50,28 @@ async def orario():
                     channel = bot.get_channel(1063753802638954519)
                     await channel.send(f"Day: {day}, Hour school: {i}, Subject found: {subject['Subject']} at index: {i}")
 
-@bot.slash_command(name="first_slash", guild_ids=['1063753799874912337']) #Add the guild ids in which the slash command will appear. If it should be in all, remove the argument, but note that it will take some time (up to an hour) to register the command if it's for all guilds.
-async def first_slash(ctx): 
-    await ctx.respond("You executed the slash command!")
+@bot.slash_command(name='change_school_time', description='Change school time')
+async def change_school_time(
+    ctx : ApplicationContext,
+    day: Option(str,
+                    "Select a day", 
+                    choices=["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], 
+                    required=True,
+                    ),
+    hour_school: Option(str,
+                    "Select hour school",
+                    choices=["1", "2", "3", "4", "5", "6"],
+                    required=True,
+                    ), text: str
+):
+    
+    await ctx.respond(f"Day selected: {day}, Hour school selected: {hour_school}, Text: {text}")
+    # Update the subject on MongoDB
+    find_document = list(collection.find({}, {"Date": long_date}))
+    array_document = find_document[0]["_id"]
+    collection.update_one(
+        {"_id": ObjectId(array_document)},
+        {"$set": {f"School Subject.{day}.{int(hour_school)}.Subject": text}}
+    )
 
 bot.run(DISCORD_TOKEN)
