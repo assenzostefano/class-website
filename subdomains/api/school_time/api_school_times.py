@@ -13,24 +13,17 @@ app = Flask(__name__)
 load_dotenv() #Load .env file
 PASSWORD_MONGODB = os.getenv('PASSWORD_MONGODB') #Password for MongoDB
 URL_MONGODB = os.getenv('URL_MONGODB') #URL for MongoDB
-mongo_url = "mongodb+srv://elci:gWB3EL%25W%405%5EA%40PGvvYRt@stefano-cluster.iphin.mongodb.net/website-class"
-print(mongo_url) #URL for MongoDB (with password)
+mongo_url = "mongodb+srv://elci:" + urllib.parse.quote_plus(PASSWORD_MONGODB) + URL_MONGODB #URL for MongoDB (with password)
 client = MongoClient(mongo_url) #Connect to MongoDB
 database = client["website-class"] #Database name
 collection = database["school-time-table"]
-db = client.get_database()
 
 @app.route("/", methods=["GET"])
 def get_subjects():
-    schedule_collection = db.schedule
+    subjects = collection.find({}, {"_id": 0})
 
-    # Utilizza il metodo find() per recuperare tutti i documenti della collezione
-    # e li converte in una lista
-    schedule = list(schedule_collection.find())
-
-    # Restituisce la risposta come una stringa JSON
-    return jsonify(schedule)
-
+    #Return all subjects
+    return jsonify(list(subjects))
 
 if __name__ == '__main__':
    app.run()
