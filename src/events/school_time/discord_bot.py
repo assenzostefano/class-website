@@ -35,12 +35,7 @@ async def orario():
                 if subject['Subject'] == "CALF1 LINGUA ITALIANA":
                     print(f"Subject found: {subject['Subject']} at index: {i}")
                     # Send a message on channel #general with the subject found and the index of the subject
-                    channel = bot.get_channel(1063753802638954519).send("bot is online")
-                    await ctx.send(f"Subject found: {subject['Subject']} at index: {i}")
-    
+                    channel = bot.get_channel(1063753802638954519)
+                    await channel.send(f"Hour school: {i}, Subject found: {subject['Subject']} at index: {i}")
 
-@bot.command()
-async def testpy(ctx):
-    bot.loop.create_task(orario(ctx))
-    await ctx.send("testpy")
 bot.run(DISCORD_TOKEN)
