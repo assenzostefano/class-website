@@ -1,10 +1,14 @@
 from flask import Flask, render_template, request, session, jsonify, redirect
+from dotenv import load_dotenv
 import requests
+import urllib.request, json
 import pymongo
 import logging
 import bcrypt
 import sys
 import os
+from urllib import request
+from urllib.request import Request, urlopen
 
 logging.basicConfig(
     level=logging.INFO,
@@ -30,9 +34,11 @@ def homepage():
 @app.route('/orario')
 def orario():
     logging.info("A user went up: Orario")
-    if 'username' in session:
-        return "You are logged in as " + session['username']
-    #return render_template('html/orario.html')
+    url = "http://127.0.0.1:5000"
+    response = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    webpage = urlopen(response).read()
+    dict = list(json.loads(webpage))
+    return render_template('orario/orario.html', data=dict)
 
 @app.route('/calendario')
 def calendario():
@@ -80,4 +86,4 @@ def login():
         
 if __name__ == '__main__':
    logging.info("Web server started!") 
-   app.run()
+   app.run(port=4999, debug=True)
