@@ -627,8 +627,6 @@ def update_time_school():
 
                     # Look for other classes doing PE at the same time as us
                     if school_subject == "CEAM  EDUCAZIONE ATTIVITA' MOTORIE" or school_subject == "CEAM EDUCAZIONE ATTIVITA' MOTORIE":
-                        print(school_subject)
-                        testgaga = column
                         for c in range(1,100):
                             search_motoria = ws.cell(row=i, column=c).value
                             if search_motoria == "CEAM  EDUCAZIONE ATTIVITA' MOTORIE" or search_motoria == "CEAM EDUCAZIONE ATTIVITA' MOTORIE":
