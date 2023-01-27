@@ -60,13 +60,32 @@ async def change_school_time(
                     ),
     hour_school: Option(str,
                     "Select hour school",
-                    choices=["1", "2", "3", "4", "5", "6"],
+                    choices=["First hour", "Second hour", "Third hour", "Fourth hour", "Fifth hour", "Sixth hour", "Seventh hour", "Eighth hour", "Ninth hour"],
                     required=True,
                     ), text: str
 ):
     
     await ctx.respond(f"Day selected: {day}, Hour school selected: {hour_school}, Text: {text}")
     # Update the subject on MongoDB
+    if hour_school == "First hour":
+        hour_school = "0"
+    elif hour_school == "Second hour":
+        hour_school = "1"
+    elif hour_school == "Third hour":
+        hour_school = "2"
+    elif hour_school == "Fourth hour":
+        hour_school = "3"
+    elif hour_school == "Fifth hour":
+        hour_school = "4"
+    elif hour_school == "Sixth hour":
+        hour_school = "5"
+    elif hour_school == "Seventh hour":
+        hour_school = "6"
+    elif hour_school == "Eighth hour":
+        hour_school = "7"
+    elif hour_school == "Ninth hour":
+        hour_school = "8"
+
     find_document = list(collection.find({}, {"Date": long_date}))
     array_document = find_document[0]["_id"]
     collection.update_one(
