@@ -1,252 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% block styles %}
+  <link rel="stylesheet"  type="text/css" href="{{url_for('.static', filename='css/index.css')}}">
+  {% endblock %}
 
-<table>
-  <tr>
-    <th scope="col">Lunedì</th>
-    <th scope="col">Martedì</th>
-    <th scope="col">Mercoledì</th>
-    <th scope="col">Giovedì</th>
-    <th scope="col">Venerdì</th>
-    <th scope="col">Sabato</th>
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][0]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][0]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][0]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][0]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Friday'][0]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][0]['Subject'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][0]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][0]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][0]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][0]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Friday'][0]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][0]['Teacher'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][0]['Room'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][0]['Room'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][0]['Room'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][0]['Room'] }}</td>
-      <td>{{ i['School Subject']['Friday'][0]['Room'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][0]['Room'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][1]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][1]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][1]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][1]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Friday'][1]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][1]['Subject'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][1]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][1]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][1]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][1]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Friday'][1]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][1]['Teacher'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][1]['Room'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][1]['Room'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][1]['Room'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][1]['Room'] }}</td>
-      <td>{{ i['School Subject']['Friday'][1]['Room'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][1]['Room'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][2]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][2]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][2]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][2]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Friday'][2]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][2]['Subject'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][2]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][2]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][2]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][2]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Friday'][2]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][2]['Teacher'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][2]['Room'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][2]['Room'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][2]['Room'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][2]['Room'] }}</td>
-      <td>{{ i['School Subject']['Friday'][2]['Room'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][2]['Room'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][3]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][3]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][3]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][3]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Friday'][3]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][3]['Subject'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][3]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][3]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][3]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][3]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Friday'][3]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][3]['Teacher'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][3]['Room'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][3]['Room'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][3]['Room'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][3]['Room'] }}</td>
-      <td>{{ i['School Subject']['Friday'][3]['Room'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][3]['Room'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][4]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][4]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][4]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][4]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Friday'][4]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][4]['Subject'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][4]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][4]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][4]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][4]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Friday'][4]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][4]['Teacher'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][4]['Room'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][4]['Room'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][4]['Room'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][4]['Room'] }}</td>
-      <td>{{ i['School Subject']['Friday'][4]['Room'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][4]['Room'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][5]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][5]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][5]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][5]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Friday'][5]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][5]['Subject'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][5]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][5]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][5]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][5]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Friday'][5]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][5]['Teacher'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][5]['Room'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][5]['Room'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][5]['Room'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][5]['Room'] }}</td>
-      <td>{{ i['School Subject']['Friday'][5]['Room'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][5]['Room'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][6]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][6]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][6]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][6]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Friday'][6]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][6]['Subject'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][6]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][6]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][6]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][6]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Friday'][6]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][6]['Teacher'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][6]['Room'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][6]['Room'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][6]['Room'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][6]['Room'] }}</td>
-      <td>{{ i['School Subject']['Friday'][6]['Room'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][6]['Room'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][7]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][7]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][7]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][7]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Friday'][7]['Subject'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][7]['Subject'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][7]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][7]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][7]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][7]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Friday'][7]['Teacher'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][7]['Teacher'] }}</td>
-    {% endfor %}
-  </tr>
-  <tr>
-    {% for i in data %}
-      <td>{{ i['School Subject']['Monday'][7]['Room'] }}</td>
-      <td>{{ i['School Subject']['Tuesday'][7]['Room'] }}</td>
-      <td>{{ i['School Subject']['Wednesday'][7]['Room'] }}</td>
-      <td>{{ i['School Subject']['Thursday'][7]['Room'] }}</td>
-      <td>{{ i['School Subject']['Friday'][7]['Room'] }}</td>
-      <td>{{ i['School Subject']['Saturday'][7]['Room'] }}</td>
-    {% endfor %}
-  </tr>
-</table>
-  
+  </head>
+  <body>
+  <table class="styled-table">
+    <tr>
+      <th scope="col">Lunedì</th>
+      <th scope="col">Martedì</th>
+      <th scope="col">Mercoledì</th>
+      <th scope="col">Giovedì</th>
+      <th scope="col">Venerdì</th>
+      <th scope="col">Sabato</th>
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][0]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][0]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][0]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][0]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Friday'][0]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][0]['Subject'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][0]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][0]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][0]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][0]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Friday'][0]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][0]['Teacher'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][0]['Room'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][0]['Room'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][0]['Room'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][0]['Room'] }}</td>
+        <td>{{ i['School Subject']['Friday'][0]['Room'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][0]['Room'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][1]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][1]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][1]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][1]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Friday'][1]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][1]['Subject'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][1]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][1]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][1]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][1]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Friday'][1]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][1]['Teacher'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][1]['Room'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][1]['Room'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][1]['Room'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][1]['Room'] }}</td>
+        <td>{{ i['School Subject']['Friday'][1]['Room'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][1]['Room'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][2]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][2]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][2]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][2]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Friday'][2]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][2]['Subject'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][2]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][2]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][2]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][2]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Friday'][2]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][2]['Teacher'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][2]['Room'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][2]['Room'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][2]['Room'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][2]['Room'] }}</td>
+        <td>{{ i['School Subject']['Friday'][2]['Room'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][2]['Room'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][3]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][3]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][3]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][3]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Friday'][3]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][3]['Subject'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][3]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][3]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][3]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][3]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Friday'][3]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][3]['Teacher'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][3]['Room'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][3]['Room'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][3]['Room'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][3]['Room'] }}</td>
+        <td>{{ i['School Subject']['Friday'][3]['Room'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][3]['Room'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][4]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][4]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][4]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][4]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Friday'][4]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][4]['Subject'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][4]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][4]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][4]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][4]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Friday'][4]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][4]['Teacher'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][4]['Room'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][4]['Room'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][4]['Room'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][4]['Room'] }}</td>
+        <td>{{ i['School Subject']['Friday'][4]['Room'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][4]['Room'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][5]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][5]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][5]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][5]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Friday'][5]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][5]['Subject'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][5]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][5]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][5]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][5]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Friday'][5]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][5]['Teacher'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][5]['Room'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][5]['Room'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][5]['Room'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][5]['Room'] }}</td>
+        <td>{{ i['School Subject']['Friday'][5]['Room'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][5]['Room'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][6]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][6]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][6]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][6]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Friday'][6]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][6]['Subject'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][6]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][6]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][6]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][6]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Friday'][6]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][6]['Teacher'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][6]['Room'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][6]['Room'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][6]['Room'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][6]['Room'] }}</td>
+        <td>{{ i['School Subject']['Friday'][6]['Room'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][6]['Room'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][7]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][7]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][7]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][7]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Friday'][7]['Subject'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][7]['Subject'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][7]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][7]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][7]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][7]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Friday'][7]['Teacher'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][7]['Teacher'] }}</td>
+      {% endfor %}
+    </tr>
+    <tr>
+      {% for i in data %}
+        <td>{{ i['School Subject']['Monday'][7]['Room'] }}</td>
+        <td>{{ i['School Subject']['Tuesday'][7]['Room'] }}</td>
+        <td>{{ i['School Subject']['Wednesday'][7]['Room'] }}</td>
+        <td>{{ i['School Subject']['Thursday'][7]['Room'] }}</td>
+        <td>{{ i['School Subject']['Friday'][7]['Room'] }}</td>
+        <td>{{ i['School Subject']['Saturday'][7]['Room'] }}</td>
+      {% endfor %}
+    </tr>
+  </table>
+</body>

@@ -44,45 +44,6 @@ def orario():
 def calendario():
     logging.info("A user went up: Calendario")
     return render_template('html/calendario.html')
-
-# Da sistemare
-@app.route('/api', methods = ['GET', 'POST'])
-def api():
-    logging.info("A user went up: API")
-    if(request.method == 'GET'):
-        data = "hello world"
-        return jsonify({'data': data})
-
-@app.route('/login', methods = ['GET', 'POST'])
-def login():
-    #Create login with Mongodb
-    logging.info("A user went up: Login")
-    message = 'Please login to your account'
-    if "email" in session:
-        return redirect(url_for("logged_in"))
-
-    if request.method == "POST":
-        email = request.form.get("email")
-        password = request.form.get("password")
-
-       
-        email_found = records.find_one({"email": email})
-        if email_found:
-            email_val = email_found['email']
-            passwordcheck = email_found['password']
-            
-            if bcrypt.checkpw(password.encode('utf-8'), passwordcheck):
-                session["email"] = email_val
-                return redirect(url_for('logged_in'))
-            else:
-                if "email" in session:
-                    return redirect(url_for("logged_in"))
-                message = 'Wrong password'
-                return render_template('login.html', message=message)
-        else:
-            message = 'Email not found'
-            return render_template('login.html', message=message)
-    return render_template('login.html', message=message)
         
 if __name__ == '__main__':
    logging.info("Web server started!") 
