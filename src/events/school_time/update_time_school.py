@@ -43,41 +43,49 @@ def update_time_school():
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
-                },
-                {
-                    "Subject": "",
-                    "Teacher": "",
-                      "Room": "",
-                },
-                {
-                    "Subject": "",
-                    "Teacher": "",
-                    "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
+                },
+                {
+                    "Subject": "",
+                    "Teacher": "",
+                    "Room": "",
+                    "PE with": "",
+                },
+                {
+                    "Subject": "",
+                    "Teacher": "",
+                    "Room": "",
+                    "PE with": "",
                 },
             ],
             "Tuesday": [
@@ -85,41 +93,49 @@ def update_time_school():
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
             ],
             "Wednesday": [
@@ -127,41 +143,49 @@ def update_time_school():
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
             ],
             "Thursday": [
@@ -169,41 +193,49 @@ def update_time_school():
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
             ],
             "Friday": [
@@ -211,41 +243,49 @@ def update_time_school():
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
             ],
             "Saturday": [
@@ -253,41 +293,49 @@ def update_time_school():
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
+                    "PE with": "",
                 },
             ],
     }
@@ -323,6 +371,7 @@ def update_time_school():
                     school_subject = ws.cell(row=i, column=column).value # Get school subject from excel file
                     teacher = ws.cell(row=i, column=column+1).value
                     room = ws.cell(row=i, column=column+2).value
+                    print(school_subject)
                     if dont_repeat == 9:
                         check_repeat += 1
                         if check_repeat == 5:
@@ -576,4 +625,25 @@ def update_time_school():
                             if gagaga_room == 8:
                                 gagaga_room = 0
 
+                    # Look for other classes doing PE at the same time as us
+                    if school_subject == "CEAM  EDUCAZIONE ATTIVITA' MOTORIE" or school_subject == "CEAM EDUCAZIONE ATTIVITA' MOTORIE":
+                        print(school_subject)
+                        testgaga = column
+                        for c in range(1,100):
+                            search_motoria = ws.cell(row=i, column=c).value
+                            if search_motoria == "CEAM  EDUCAZIONE ATTIVITA' MOTORIE" or search_motoria == "CEAM EDUCAZIONE ATTIVITA' MOTORIE":
+                                if c == column:
+                                    print("Non valido")
+                                    print("Row " + str(i) + " Column " + str(c) + " is " + school_subject)
+                                else:
+                                    search_class = ws.cell(row=3, column=c).value
+                                    collection.update_one(
+                                        { "_id": ObjectId(array_document_school_time_table)},
+                                        { "$set": {
+                                            "School Subject." + array_test[0] + "." + str(gagaga_room)+ ".PE with": search_class,
+                                        }
+                                    }
+                                )
+                            else:
+                                print("")
 update_time_school()
