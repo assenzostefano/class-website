@@ -1,35 +1,54 @@
-.styled-table {
-    border-collapse: collapse;
-    margin: 25px 0;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+.ExcelTable2007 {
+	border: 1px solid #B0CBEF;
+	border-width: 1px 0px 0px 1px;
+	font-size: 11pt;
+	font-family: Calibri;
+	font-weight: 100;
+	border-spacing: 0px;
+	border-collapse: collapse;
+    font-family: 'Roboto Slab', serif;
 }
 
-.styled-table thead tr {
-    background-color: #009879;
-    color: #ffffff;
-    text-align: left;
-}
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
-}
-
-.styled-table tbody tr {
-    border-bottom: 1px solid #dddddd;
+.ExcelTable2007 TH {
+	background-image: url(excel-2007-header-bg.gif);
+	background-repeat: repeat-x; 
+	font-weight: normal;
+	font-size: 14px;
+	border: 1px solid #9EB6CE;
+	border-width: 0px 1px 1px 0px;
+	height: 17px;
+    font-family: 'Roboto Slab', serif;
 }
 
-.styled-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
+.ExcelTable2007 TD {
+    
+	border: 0px;
+	background-color: white;
+	padding: 10px 10px 10px 10px;
+	border: 1px solid #D0D7E5;
+	border-width: 0px 1px 1px 0px;
+    font-family: 'Roboto Slab', serif;
 }
 
-.styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+.ExcelTable2007 TD B {
+	border: 0px;
+	background-color: white;
+	font-weight: bold;
+    font-family: 'Roboto Slab', serif;
+	zoom: 50%;
 }
 
-.styled-table tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
+.ExcelTable2007 TD.heading {
+	background-color: #E4ECF7;
+	text-align: center;
+	border: 1px solid #9EB6CE;
+	border-width: 0px 1px 1px 0px;
+    font-family: 'Roboto Slab', serif;
+}
+
+.ExcelTable2007 TH.heading {
+	background-image: url(excel-2007-header-left.gif);
+	background-repeat: none;
+    font-family: 'Roboto Slab', serif;
 }

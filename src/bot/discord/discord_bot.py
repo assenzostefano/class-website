@@ -1,14 +1,20 @@
 from dotenv import load_dotenv
 from bson.objectid import ObjectId
 
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.by import By
+from selenium import webdriver
+
 from discord.ext import tasks, commands
 from discord.commands.context import ApplicationContext
 from discord.commands import Option
 import discord
 import pymongo
 import urllib.parse
+from selenium import webdriver
 import datetime
 import os
+import time
 
 load_dotenv()  # Load .env file
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')  # Discord token
@@ -40,15 +46,32 @@ async def on_ready():
 @tasks.loop(seconds=1)
 async def orario():
     documents = collection.find()
-
+    send_screenshot = 0
 # Iterate through the documents
     for document in documents:
         for day in document['School Subject']:
             for i, subject in enumerate(document['School Subject'][day]):
                 if subject['Subject'] == "CALF1 LINGUA ITALIANA":
                     # Send a message on channel #general with the subject found and the index of the subject
+                    options = Options() # Set options
+                    options.add_argument("--headless") # Headless mode (so you don't see the browser)
+                    options.add_argument('--disable-gpu') # Disable GPU
+                    if send_screenshot == 0:
+                        driver = webdriver.Firefox(options=options)
+                        driver.get('http://127.0.0.1:4999/orario')
+                        time.sleep(5)
+
+                        driver.get_screenshot_as_file("screenshot.png")
+                        driver.quit()
+                        await channel.send(file=discord.File('screenshot.png'))
+                        os.remove("screenshot.png")
+                        send_screenshot += 1
+                    else:
+                        pass
                     channel = bot.get_channel(1063753802638954519)
                     await channel.send(f"Day: {day}, Hour school: {i}, Subject found: {subject['Subject']} at index: {i}")
+    send_screenshot = 0
+
 
 @bot.slash_command(name='change_school_time', description='Change school time')
 async def change_school_time(

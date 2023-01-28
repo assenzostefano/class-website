@@ -38,7 +38,9 @@ def orario():
     response = Request(url, headers={"User-Agent": "Mozilla/5.0"})
     webpage = urlopen(response).read()
     dict = list(json.loads(webpage))
-    return render_template('orario/orario.html', data=dict)
+    number = str(range(0,7))
+    day = str(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"])
+    return render_template('orario/orario.html', data=dict, number=number, day=day)
 
 @app.route('/calendario')
 def calendario():
