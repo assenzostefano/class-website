@@ -1,14 +1,9 @@
-from flask import Flask, render_template, request, session, jsonify, redirect
-from dotenv import load_dotenv
-import requests
-import urllib.request, json
-import pymongo
+from urllib.request import Request, urlopen
+from flask import Flask, render_template
 import logging
-import bcrypt
+import json
 import sys
 import os
-from urllib import request
-from urllib.request import Request, urlopen
 
 logging.basicConfig(
     level=logging.INFO,
