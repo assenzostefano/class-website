@@ -18,6 +18,7 @@ import time
 
 load_dotenv()  # Load .env file
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')  # Discord token
+GENERAL_ID = os.getenv('GENERAL_ID')  # Channel ID
 PASSWORD_MONGODB = os.getenv('PASSWORD_MONGODB')  # Password for MongoDB
 URL_MONGODB = os.getenv('URL_MONGODB')  # URL for MongoDB
 mongo_url = "mongodb+srv://elci:" + urllib.parse.quote_plus(PASSWORD_MONGODB) + URL_MONGODB  # URL for MongoDB (with password)
@@ -68,7 +69,7 @@ async def orario():
                         send_screenshot += 1
                     else:
                         pass
-                    channel = bot.get_channel(1063753802638954519)
+                    channel = bot.get_channel(GENERAL_ID)
                     await channel.send(f"Day: {day}, Hour school: {i}, Subject found: {subject['Subject']} at index: {i}")
     send_screenshot = 0
 
