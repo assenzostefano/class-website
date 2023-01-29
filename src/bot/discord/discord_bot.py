@@ -1,54 +1,56 @@
-from dotenv import load_dotenv
-from bson.objectid import ObjectId
+from commands.moderation import ban, kick, clear_msg
+from discord.commands.context import ApplicationContext # Discord
+from selenium.webdriver.firefox.options import Options # Selenium
+from discord.commands import Option # Discord
+from discord.ext import commands
+from bson.objectid import ObjectId # MongoDB
+from selenium import webdriver # Selenium
+from dotenv import load_dotenv 
+from selenium import webdriver # Selenium
+from discord.ext import tasks # Discord
+import urllib.parse # MongoDB
+import datetime # Date
+import discord # Discord
+import pymongo # MongoDB
+import time # Time
+import os # OS
 
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver.common.by import By
-from selenium import webdriver
-
-from discord.ext import tasks, commands
-from discord.commands.context import ApplicationContext
-from discord.commands import Option
-import discord
-import pymongo
-import urllib.parse
-from selenium import webdriver
-import datetime
-import os
-import time
-
+# .env
 load_dotenv()  # Load .env file
 DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')  # Discord token
 GENERAL_ID = os.getenv('GENERAL_ID')  # Channel ID
 PASSWORD_MONGODB = os.getenv('PASSWORD_MONGODB')  # Password for MongoDB
 URL_MONGODB = os.getenv('URL_MONGODB')  # URL for MongoDB
+
+# MongoDB
 mongo_url = "mongodb+srv://elci:" + urllib.parse.quote_plus(PASSWORD_MONGODB) + URL_MONGODB  # URL for MongoDB (with password)
 client = pymongo.MongoClient(mongo_url)  # Connect to MongoDB
 database = client["website-class"]  # Database name
-# Collection school time table current
-collection = database["school-time-table"]
+collection = database["school-time-table"] # Collection school time table current
 
 #Date
-current_time = datetime.datetime.now()
-day = str(current_time.day)
-month = str(current_time.month)
-year = str(current_time.year)
-hour = str(current_time.hour)
-minute = str(current_time.minute)
-long_date = day + "-" + month + "-" + year + " " + hour + ":" + minute
+current_time = datetime.datetime.now() # Current time
+day = str(current_time.day) # Day
+month = str(current_time.month) # Month
+year = str(current_time.year) # Year
+hour = str(current_time.hour) # Hour
+minute = str(current_time.minute) # Minute
+long_date = day + "-" + month + "-" + year + " " + hour + ":" + minute # Long date with day, month, year, hour and minute
 
 bot = discord.Bot()
 
 @bot.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
-    bot.loop.create_task(orario())
+    #bot.loop.create_task(orario())
 
 # Search on MongoDB the subject and send a message on Discord if the subject is found
 @tasks.loop(seconds=1)
 async def orario():
     documents = collection.find()
     send_screenshot = 0
-# Iterate through the documents
+
+    # Iterate through the documents
     for document in documents:
         for day in document['School Subject']:
             for i, subject in enumerate(document['School Subject'][day]):
@@ -116,5 +118,21 @@ async def change_school_time(
         {"_id": ObjectId(array_document)},
         {"$set": {f"School Subject.{day}.{int(hour_school)}.Subject": text}}
     )
+
+@bot.slash_command()
+@discord.default_permissions(ban_members = True, administrator = True)
+async def ban(ctx, member: Option(discord.Member, description="Select a member", required=True), reason: Option(str, description="Reason", required=True)):
+    ban.ban_user(bot, ctx, member, reason)
+
+@bot.slash_command()
+@discord.default_permissions(kick_members = True, administrator = True)
+async def kick(ctx, member: Option(discord.Member, description="Select a member", required=True), reason: Option(str, description="Reason", required=True)):
+    kick.kick_user(bot, ctx, member, reason)
+
+@bot.slash_command(name= 'clear', description= 'Clears messages from a channel')
+@commands.has_permissions(manage_messages=True, administrator=True)
+@commands.cooldown(1, 5, commands.BucketType.user)
+async def clear(ctx, messages: Option(int, description="Amount of messages to delete", required=True)):
+    clear_msg.clear_messages(ctx, amount = messages)
 
 bot.run(DISCORD_TOKEN)

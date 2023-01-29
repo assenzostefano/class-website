@@ -1,6 +1,8 @@
+from dotenv import load_dotenv
 from twilio.rest import Client
 import os
 
+load_dotenv()
 SID = os.getenv('SID')
 AUTH_TOKEN = os.getenv('AUTHTOKEN')
 PHONE_NUMBER_BOT = os.getenv('PHONE_NUMBER_BOT')
