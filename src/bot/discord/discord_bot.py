@@ -42,7 +42,7 @@ bot = discord.Bot()
 @bot.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
-    #bot.loop.create_task(orario())
+    bot.loop.create_task(orario())
 
 # Search on MongoDB the subject and send a message on Discord if the subject is found
 @tasks.loop(seconds=1)
