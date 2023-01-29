@@ -1,5 +1,9 @@
+from selenium.webdriver.firefox.options import Options # Selenium
+from selenium import webdriver # Selenium
 from dotenv import load_dotenv
 from twilio.rest import Client
+import time
+import subprocess
 import os
 
 load_dotenv()
@@ -10,6 +14,11 @@ PHONE_NUMBER_PERSONAL = os.getenv('PHONE_NUMBER_PERSONAL')
 
 client = Client(SID, AUTH_TOKEN)
 
-message = client.messages.create(to=PHONE_NUMBER_PERSONAL, 
-                                from_=PHONE_NUMBER_BOT, 
-                                body="Hello from Python!")
+message = client.messages \
+                .create(
+                     body="Test",
+                     media_url=['IMAGE URL'],
+                     from_=PHONE_NUMBER_BOT,
+                     to=PHONE_NUMBER_PERSONAL
+                 )
+print(message.sid)

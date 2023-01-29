@@ -36,11 +36,6 @@ def orario():
     number = str(range(0,7))
     day = str(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"])
     return render_template('orario/orario.html', data=dict, number=number, day=day)
-
-@app.route('/calendario')
-def calendario():
-    logging.info("A user went up: Calendario")
-    return render_template('html/calendario.html')
         
 if __name__ == '__main__':
    logging.info("Web server started!") 
