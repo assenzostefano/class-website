@@ -1,322 +1,310 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {% block styles %}
-  <link rel="stylesheet"  type="text/css" href="{{url_for('.static', filename='css/index.css')}}">
-  {% endblock %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<link type="text/css" rel="stylesheet" href="resources/sheet.css">
+<style type="text/css">
+    .ritz .waffle a {
+        color: inherit;
+    }
 
-  </head>
-  <body>
-  <table>
-    <tbody>
-      <tr>
-        <th></th>
-        <th scope="col">Lunedì</th>
-        <th scope="col">Martedì</th>
-        <th scope="col">Mercoledì</th>
-        <th scope="col">Giovedì</th>
-        <th scope="col">Venerdì</th>
-        <th scope="col">Sabato</th>
-      </tr>
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">07:55</td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][0]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][0]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][0]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][0]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Friday'][0]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][0]['Subject'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        <td></td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][0]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][0]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][0]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][0]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Friday'][0]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][0]['Teacher'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">08:55</td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][0]['Room'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][0]['Room'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][0]['Room'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][0]['Room'] }}</td>
-          <td>{{ i['School Subject']['Friday'][0]['Room'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][0]['Room'] }}</td>
-        {% endfor %}
-      </tr>
+    .ritz .waffle .s5 {
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: center;
+        color: #000000;
+        font-family: 'docs-Calibri', Arial;
+        font-size: 11pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+    }
 
-      <tr>
-        <td class="space"></td>
-      </tr>
+    .ritz .waffle .s4 {
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: 'docs-Calibri', Arial;
+        font-size: 11pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+    }
 
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">08:55</td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][1]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][1]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][1]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][1]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Friday'][1]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][1]['Subject'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        <td></td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][1]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][1]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][1]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][1]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Friday'][1]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][1]['Teacher'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">09:55</td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][1]['Room'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][1]['Room'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][1]['Room'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][1]['Room'] }}</td>
-          <td>{{ i['School Subject']['Friday'][1]['Room'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][1]['Room'] }}</td>
-        {% endfor %}
-      </tr>
+    .ritz .waffle .s6 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: 'docs-Calibri', Arial;
+        font-size: 11pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+    }
 
-      <tr>
-        <td class="space"></td>
-      </tr>
+    .ritz .waffle .s1 {
+        border-bottom: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: 'docs-Calibri', Arial;
+        font-size: 11pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+    }
 
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">09:55</td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][2]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][2]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][2]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][2]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Friday'][2]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][2]['Subject'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        <td></td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][2]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][2]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][2]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][2]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Friday'][2]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][2]['Teacher'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">10:55</td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][2]['Room'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][2]['Room'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][2]['Room'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][2]['Room'] }}</td>
-          <td>{{ i['School Subject']['Friday'][2]['Room'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][2]['Room'] }}</td>
-        {% endfor %}
-      </tr>
+    .ritz .waffle .s2 {
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: center;
+        color: #000000;
+        font-family: 'docs-Calibri', Arial;
+        font-size: 11pt;
+        vertical-align: middle;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+    }
 
-      <tr>
-        <td class="space"></td>
-      </tr>
+    .ritz .waffle .s8 {
+        border-left: none;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: 'docs-Calibri', Arial;
+        font-size: 11pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+    }
 
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">11:10</td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][3]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][3]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][3]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][3]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Friday'][3]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][3]['Subject'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        <td></td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][3]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][3]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][3]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][3]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Friday'][3]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][3]['Teacher'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">12:10</td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][3]['Room'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][3]['Room'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][3]['Room'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][3]['Room'] }}</td>
-          <td>{{ i['School Subject']['Friday'][3]['Room'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][3]['Room'] }}</td>
-        {% endfor %}
-      </tr>
+    .ritz .waffle .s9 {
+        border-bottom: 1px SOLID #000000;
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: 'docs-Calibri', Arial;
+        font-size: 11pt;
+        vertical-align: middle;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+    }
 
-      <tr>
-        <td class="space"></td>
-      </tr>
+    .ritz .waffle .s3 {
+        border-right: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: 'docs-Calibri', Arial;
+        font-size: 11pt;
+        vertical-align: middle;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+    }
 
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">12:10</td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][4]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][4]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][4]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][4]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Friday'][4]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][4]['Subject'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        <td></td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][4]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][4]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][4]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][4]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Friday'][4]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][4]['Teacher'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">13:10</td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][4]['Room'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][4]['Room'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][4]['Room'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][4]['Room'] }}</td>
-          <td>{{ i['School Subject']['Friday'][4]['Room'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][4]['Room'] }}</td>
-        {% endfor %}
-      </tr>
+    .ritz .waffle .s0 {
+        border-bottom: 1px SOLID #000000;
+        background-color: #ffffff;
+        text-align: left;
+        color: #000000;
+        font-family: 'docs-Calibri', Arial;
+        font-size: 11pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+    }
 
-      <tr>
-        <td class="space"></td>
-      </tr>
+    .ritz .waffle .s7 {
+        border-right: none;
+        background-color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+        color: #000000;
+        font-family: 'docs-docs-Calibri', Arial;
+        font-size: 11pt;
+        vertical-align: bottom;
+        white-space: nowrap;
+        direction: ltr;
+        padding: 0px 3px 0px 3px;
+    }
+</style>
+<div class="ritz grid-container" dir="ltr" style="overflow-x:auto;">
+    <table class="waffle" cellspacing="0" cellpadding="0">
+        <tbody>
+            {% for i in data %}
+            <tr style="height: 19px">
+                <td class="s0"></td>
+                <td class="s1" colspan="2">Lunedì</td>
+                <td class="s1" colspan="2">Martedì</td>
+                <td class="s1" colspan="2">Mercoledì</td>
+                <td class="s1" colspan="2">Giovedì</td>
+                <td class="s1" colspan="2">Venerdì</td>
+            </tr>
+            <tr style="height: 21px">
+                <td class="s2">7:55</td>
+                <td class="s3" colspan="2">{{ i['School Subject']['Monday'][0]['Subject']}}</td>
+                <td class="s3" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][0]['Subject']}}</td>
+                <td class="s3" colspan="2">{{ i['School Subject']['Wednesday'][0]['Subject']}}</td>
+                <td class="s3" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][0]['Subject']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][0]['Subject']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5"></td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Monday'][0]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][0]['Teacher']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Wednesday'][0]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][0]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][0]['Teacher']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5">08.55</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][0]['Room']}}</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][0]['Room']}}</td>
+                <td class="s6" colspan="2">{{ i['School Subject']['Wednesday'][0]['Room']}}</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][0]['Room']}}</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][0]['Room']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5">08.55</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Monday'][1]['Subject']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][1]['Subject']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Wednesday'][1]['Subject']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][1]['Subject']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][1]['Subject']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5"></td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Monday'][1]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][1]['Teacher']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Wednesday'][1]['Teacher']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][1]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][1]['Teacher']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5">09.55</td>
+                <td class="s6" colspan="2">32</td>
+                <td class="s6" dir="ltr" colspan="2">25</td>
+                <td class="s6" colspan="2">11</td>
+                <td class="s6" dir="ltr" colspan="2">12</td>
+                <td class="s6" dir="ltr" colspan="2">18</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5">09.55</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Monday'][2]['Subject']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][2]['Subject']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Wednesday'][2]['Subject']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][2]['Subject']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][2]['Subject']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5"></td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Monday'][2]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][2]['Teacher']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Wednesday'][2]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][2]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][2]['Teacher']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5">10.55</td>
+                <td class="s6" colspan="2">{{ i['School Subject']['Monday'][2]['Room']}}</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][2]['Room']}}</td>
+                <td class="s6" colspan="2">{{ i['School Subject']['Wednesday'][2]['Room']}}</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][2]['Room']}}</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][2]['Room']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5">11.10</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][3]['Subject']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][3]['Subject']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][3]['Subject']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][3]['Subject']}}</td>
+                <td class="s7 softmerge" dir="ltr">
+                    <div class="softmerge-inner" colspan="2">{{ i['School Subject']['Friday'][3]['Subject']}}</div>
+                </td>                
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5"></td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][3]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][3]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][3]['Teacher']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][3]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][3]['Teacher']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5">12.10</td>
+                <td class="s9" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][3]['Room']}}</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][3]['Room']}}</td>
+                <td class="s9" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][3]['Room']}}</td>
+                <td class="s6" colspan="2">{{ i['School Subject']['Thursday'][3]['Room']}}</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][3]['Room']}}</td>
+            </tr>
+            <tr style="height: 19px">
 
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">13:10</td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][5]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][5]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][5]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][5]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Friday'][5]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][5]['Subject'] }}</td>
+                <td class="s5">12.10</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][4]['Subject']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Tuesday'][4]['Subject']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][4]['Subject']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][4]['Subject']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][4]['Subject']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5"></td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][4]['Teacher']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Tuesday'][4]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][4]['Teacher']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][4]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][4]['Teacher']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5">13.10</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][4]['Room']}}</td>
+                <td class="s6" colspan="2">{{ i['School Subject']['Tuesday'][4]['Room']}}</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][4]['Room']}}</td>
+                <td class="s6" colspan="2">{{ i['School Subject']['Thursday'][4]['Room']}}</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][4]['Room']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5">13.10</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Monday'][5]['Subject']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Tuesday'][5]['Subject']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][5]['Subject']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][5]['Subject']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][5]['Subject']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5"></td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Monday'][5]['Teacher']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Tuesday'][5]['Teacher']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Wednesday'][5]['Teacher']}}</td>
+                <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][5]['Teacher']}}</td>
+                <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][5]['Teacher']}}</td>
+            </tr>
+            <tr style="height: 19px">
+                <td class="s5">14.10</td>
+                <td class="s6" colspan="2">{{ i['School Subject']['Monday'][5]['Room']}}</td>
+                <td class="s6" colspan="2">{{ i['School Subject']['Tuesday'][5]['Room']}}</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][5]['Room']}}</td>
+                <td class="s6" colspan="2">{{ i['School Subject']['Thursday'][5]['Room']}}</td>
+                <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][5]['Room']}}</td>
+            </tr>
         {% endfor %}
-      </tr>
-      <tr>
-        <td></td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][5]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][5]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][5]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][5]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Friday'][5]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][5]['Teacher'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        <td style="text-align: center; vertical-align: middle;">14:10</td>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][5]['Room'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][5]['Room'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][5]['Room'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][5]['Room'] }}</td>
-          <td>{{ i['School Subject']['Friday'][5]['Room'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][5]['Room'] }}</td>
-        {% endfor %}
-      </tr>
-
-      <tr>
-        <td class="space"></td>
-      </tr>
-    
-      <tr>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][6]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][6]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][6]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][6]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Friday'][6]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][6]['Subject'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][6]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][6]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][6]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][6]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Friday'][6]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][6]['Teacher'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][6]['Room'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][6]['Room'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][6]['Room'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][6]['Room'] }}</td>
-          <td>{{ i['School Subject']['Friday'][6]['Room'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][6]['Room'] }}</td>
-        {% endfor %}
-      </tr>
-
-      <tr>
-        <td class="space"></td>
-      </tr>
-
-      <tr>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][7]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][7]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][7]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][7]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Friday'][7]['Subject'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][7]['Subject'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][7]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][7]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][7]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][7]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Friday'][7]['Teacher'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][7]['Teacher'] }}</td>
-        {% endfor %}
-      </tr>
-      <tr>
-        {% for i in data %}
-          <td>{{ i['School Subject']['Monday'][7]['Room'] }}</td>
-          <td>{{ i['School Subject']['Tuesday'][7]['Room'] }}</td>
-          <td>{{ i['School Subject']['Wednesday'][7]['Room'] }}</td>
-          <td>{{ i['School Subject']['Thursday'][7]['Room'] }}</td>
-          <td>{{ i['School Subject']['Friday'][7]['Room'] }}</td>
-          <td>{{ i['School Subject']['Saturday'][7]['Room'] }}</td>
-        {% endfor %}
-      </tr>
-
-      <tr>
-        <td class="space"></td>
-      </tr>
-
-    </tbody>  
-  </table>
-</body>
+        </tbody>
+    </table>
+</div>
