@@ -387,7 +387,7 @@ def update_time_school():
                                 if gagaga == 9:
                                     gagaga = 0
                             else: #If school subject is not 0, add school subject in MongoDB
-                                #remove_things_in_front = school_subject.split(' ', 1)[1]
+                                remove_things_in_front = school_subject.split(' ', 1)[1]
                                 find_document_school_time_table = list(collection.find({}, {"Date": long_date}))
                                 find_document_archive_school_time_table = list(collection_archive.find({}, {"Date": long_date}))
                                 array_document_school_time_table = find_document_school_time_table[0]["_id"]
@@ -396,14 +396,14 @@ def update_time_school():
                                 collection.update_one(
                                     { "_id": ObjectId(array_document_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga) + ".Subject": school_subject,
+                                        "School Subject." + array_test[0] + "." + str(gagaga) + ".Subject": remove_things_in_front,
                                     }
                                 }
                             )
                                 collection_archive.update_one(
                                     { "_id": ObjectId(array_document_archive_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga) + ".Subject": school_subject,
+                                        "School Subject." + array_test[0] + "." + str(gagaga) + ".Subject": remove_things_in_front,
                                     }
                                 }
                             )
@@ -421,6 +421,7 @@ def update_time_school():
                             array_test.append(convert_date_to_day)
                             number_day += 1
                             if school_subject == 0: #If school subject is 0, add "" in MongoDB
+                                print(school_subject)
                                 find_document_school_time_table = list(collection.find({}, {"Date": long_date}))
                                 find_document_archive_school_time_table = list(collection_archive.find({}, {"Date": long_date}))
                                 array_document_school_time_table = find_document_school_time_table[0]["_id"]
@@ -449,7 +450,7 @@ def update_time_school():
                                 if gagaga == 8:
                                     gagaga = 0
                             else: #If school subject is not 0, add school subject in MongoDB
-                                #remove_things_in_front = school_subject.split(' ', 1)[1]
+                                remove_things_in_front = school_subject.split(' ', 1)[1]
                                 find_document_school_time_table = list(collection.find({}, {"Date": long_date}))
                                 find_document_archive_school_time_table = list(collection_archive.find({}, {"Date": long_date}))
                                 array_document_school_time_table = find_document_school_time_table[0]["_id"]
@@ -458,14 +459,14 @@ def update_time_school():
                                 collection.update_one(
                                     { "_id": ObjectId(array_document_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Subject": school_subject,
+                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Subject": remove_things_in_front,
                                     }
                                 }
                             )
                                 collection_archive.update_one(
                                     { "_id": ObjectId(array_document_archive_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Subject": school_subject,
+                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Subject": remove_things_in_front,
                                     }
                                 }
                             )
@@ -634,8 +635,6 @@ def update_time_school():
                                     pass
                                 else:
                                     search_class = ws.cell(row=3, column=c).value
-                                    print(search_class)
-                                    print(gagaga_room)
                                     collection.update_one(
                                         { "_id": ObjectId(array_document_school_time_table)},
                                         { "$set": {
@@ -645,4 +644,5 @@ def update_time_school():
                                 )
                             else:
                                 pass
+
 update_time_school()
