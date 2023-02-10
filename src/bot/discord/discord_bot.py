@@ -27,6 +27,7 @@ mongo_url = "mongodb+srv://elci:" + urllib.parse.quote_plus(PASSWORD_MONGODB) + 
 client = pymongo.MongoClient(mongo_url)  # Connect to MongoDB
 database = client["website-class"]  # Database name
 collection = database["school-time-table"] # Collection school time table current
+collection_email = database["email"]  # Collection email
 
 #Date
 current_time = datetime.datetime.now() # Current time
@@ -66,7 +67,8 @@ async def orario():
 
                         driver.get_screenshot_as_file("screenshot.png")
                         driver.quit()
-                        await channel.send(file=discord.File('screenshot.png'))
+                        channel = bot.get_channel(GENERAL_ID)
+                        await channel.send(file=discord.File("screenshot.png"))
                         os.remove("screenshot.png")
                         send_screenshot += 1
                     else:
@@ -119,20 +121,24 @@ async def change_school_time(
         {"$set": {f"School Subject.{day}.{int(hour_school)}.Subject": text}}
     )
 
-@bot.slash_command()
-@discord.default_permissions(ban_members = True, administrator = True)
-async def ban(ctx, member: Option(discord.Member, description="Select a member", required=True), reason: Option(str, description="Reason", required=True)):
-    ban.ban_user(bot, ctx, member, reason)
-
-@bot.slash_command()
-@discord.default_permissions(kick_members = True, administrator = True)
-async def kick(ctx, member: Option(discord.Member, description="Select a member", required=True), reason: Option(str, description="Reason", required=True)):
-    kick.kick_user(bot, ctx, member, reason)
-
-@bot.slash_command(name= 'clear', description= 'Clears messages from a channel')
-@commands.has_permissions(manage_messages=True, administrator=True)
-@commands.cooldown(1, 5, commands.BucketType.user)
-async def clear(ctx, messages: Option(int, description="Amount of messages to delete", required=True)):
-    clear_msg.clear_messages(ctx, amount = messages)
+@bot.slash_command(name='confirm', description='Confirm change school time')
+async def confirm(ctx : ApplicationContext):
+    await ctx.respond(f"Confirm")
+    collection_email.update_one({}, {"$set": {"Send on Whatsapp": "yes"}})
+#@bot.slash_command()
+#@discord.default_permissions(ban_members = True, administrator = True)
+#async def ban(ctx, member: Option(discord.Member, description="Select a member", required=True), reason: Option(str, description="Reason", required=True)):
+#    ban.ban_user(bot, ctx, member, reason)
+#
+#@bot.slash_command()
+#@discord.default_permissions(kick_members = True, administrator = True)
+#async def kick(ctx, member: Option(discord.Member, description="Select a member", required=True), reason: Option(str, description="Reason", required=True)):
+#    kick.kick_user(bot, ctx, member, reason)
+#
+#@bot.slash_command(name= 'clear', description= 'Clears messages from a channel')
+#@commands.has_permissions(manage_messages=True, administrator=True)
+#@commands.cooldown(1, 5, commands.BucketType.user)
+#async def clear(ctx, messages: Option(int, description="Amount of messages to delete", required=True)):
+#    clear_msg.clear_messages(ctx, amount = messages)
 
 bot.run(DISCORD_TOKEN)

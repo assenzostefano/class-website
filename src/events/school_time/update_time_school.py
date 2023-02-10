@@ -44,48 +44,64 @@ def update_time_school():
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
             ],
             "Tuesday": [
@@ -94,48 +110,64 @@ def update_time_school():
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
             ],
             "Wednesday": [
@@ -144,48 +176,64 @@ def update_time_school():
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
             ],
             "Thursday": [
@@ -194,48 +242,64 @@ def update_time_school():
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
             ],
             "Friday": [
@@ -244,48 +308,64 @@ def update_time_school():
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
             ],
             "Saturday": [
@@ -294,48 +374,64 @@ def update_time_school():
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
                 {
                     "Subject": "",
                     "Teacher": "",
                     "Room": "",
                     "PE with": "",
+                    "le is busy": "",
+                    "le3 is busy": "",
                 },
             ],
     }
@@ -392,6 +488,23 @@ def update_time_school():
                                 find_document_archive_school_time_table = list(collection_archive.find({}, {"Date": long_date}))
                                 array_document_school_time_table = find_document_school_time_table[0]["_id"]
                                 array_document_archive_school_time_table = find_document_archive_school_time_table[0]["_id"]
+                                if remove_things_in_front == "MISURE ELETTRICHE":
+                                    remove_things_in_front = "MISURE"
+                                elif remove_things_in_front == " EDUCAZIONE ATTIVITA' MOTORIE":
+                                    remove_things_in_front = "MOTORIA"
+                                elif remove_things_in_front == "EDUCAZIONE ATTIVITA' MOTORIE":
+                                    remove_things_in_front = "Motoria"
+                                elif remove_things_in_front == "DIRITTO ED ECONOMIA":
+                                    remove_things_in_front = "DIRITTO"
+                                elif remove_things_in_front == "INGLESE PROFESSIONALE":
+                                    remove_things_in_front = "INGLESE PRO."
+                                elif remove_things_in_front == "LABORATORIO ELETTRICO":
+                                    remove_things_in_front = "LAB. ELETTRICO"
+                                elif remove_things_in_front == "LINGUA INGLESE":
+                                    remove_things_in_front = "INGLESE"
+                                elif remove_things_in_front == "SCIENZE INTEGRATE - FISICA":
+                                    remove_things_in_front = "FISICA"
+
                                 # Add school subject in MongoDB beacause school subject is not 0
                                 collection.update_one(
                                     { "_id": ObjectId(array_document_school_time_table)},
@@ -421,7 +534,6 @@ def update_time_school():
                             array_test.append(convert_date_to_day)
                             number_day += 1
                             if school_subject == 0: #If school subject is 0, add "" in MongoDB
-                                print(school_subject)
                                 find_document_school_time_table = list(collection.find({}, {"Date": long_date}))
                                 find_document_archive_school_time_table = list(collection_archive.find({}, {"Date": long_date}))
                                 array_document_school_time_table = find_document_school_time_table[0]["_id"]
@@ -429,7 +541,7 @@ def update_time_school():
                                 collection.update_one(
                                     { "_id": ObjectId(array_document_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga) + ".Subject": school_subject,
+                                        "School Subject." + array_test[0] + "." + str(gagaga) + ".Subject": remove_things_in_front,
                                     }
                                 }
                             )
@@ -450,7 +562,29 @@ def update_time_school():
                                 if gagaga == 8:
                                     gagaga = 0
                             else: #If school subject is not 0, add school subject in MongoDB
-                                remove_things_in_front = school_subject.split(' ', 1)[1]
+                                if school_subject == "21PM1 MISURE ELETTRICHE":
+                                    school_subject = "MISURE"
+                                elif school_subject == " CEAM  EDUCAZIONE ATTIVITA' MOTORIE":
+                                    school_subject = "MOTORIA"
+                                elif school_subject == "CEAM  EDUCAZIONE ATTIVITA' MOTORIE":
+                                    school_subject = "MOTORIA"
+                                elif school_subject == "CSGGE1 DIRITTO ED ECONOMIA":
+                                    school_subject = "DIRITTO"
+                                elif school_subject == "PR1 INGLESE PROFESSIONALE":
+                                    school_subject = "INGLESE PRO."
+                                elif school_subject == "PR1 LABORATORIO ELETTRICO":
+                                    school_subject = "LAB. ELETTRICO"
+                                elif school_subject == "CLING LINGUA INGLESE":
+                                    school_subject = "INGLESE"
+                                elif school_subject == "CMST2 SCIENZE INTEGRATE - FISICA":
+                                    school_subject = "FISICA"
+                                elif school_subject == "PR1 DISEGNO":
+                                    school_subject = "DISEGNO"
+                                elif school_subject == "CSGGE2 STORIA":
+                                    school_subject = "STORIA"
+                                elif school_subject == "CMST1 MATEMATICA":
+                                    school_subject = "MATEMATICA"
+
                                 find_document_school_time_table = list(collection.find({}, {"Date": long_date}))
                                 find_document_archive_school_time_table = list(collection_archive.find({}, {"Date": long_date}))
                                 array_document_school_time_table = find_document_school_time_table[0]["_id"]
@@ -459,14 +593,14 @@ def update_time_school():
                                 collection.update_one(
                                     { "_id": ObjectId(array_document_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Subject": remove_things_in_front,
+                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Subject": school_subject,
                                     }
                                 }
                             )
                                 collection_archive.update_one(
                                     { "_id": ObjectId(array_document_archive_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Subject": remove_things_in_front,
+                                        "School Subject." + array_test[0] + "." + str(gagaga)+ ".Subject": school_subject,
                                     }
                                 }
                             )
@@ -644,5 +778,40 @@ def update_time_school():
                                 )
                             else:
                                 pass
+
+                    # Search if class le3 is busy
+                    for c in range(1,100):
+                        search_other_subject = ws.cell(row=i, column=c).value
+                        search_room = ws.cell(row=i, column=c).value
+                        if c == column:
+                            pass
+                        else:
+                            if teacher == "Martin":
+                                if search_other_subject == "le3" or search_other_subject == "le":
+                                    search_class = ws.cell(row=3, column=c-2).value
+                                    if search_class == "2elci":
+                                        pass
+                                    else:
+                                        if c == column:
+                                            pass
+                                        else:
+                                            if search_other_subject == "le3":
+                                                collection.update_one(
+                                                    { "_id": ObjectId(array_document_school_time_table)},
+                                                    { "$set": {
+                                                        "School Subject." + array_test[0] + "." + str(gagaga_room-1)+ ".le3 is busy": search_class,
+                                                    }
+                                                }
+                                            )
+                                            if search_other_subject == "le":
+                                                collection.update_one(
+                                                    { "_id": ObjectId(array_document_school_time_table)},
+                                                    { "$set": {
+                                                        "School Subject." + array_test[0] + "." + str(gagaga_room-1)+ ".le is busy": search_class,
+                                                    }
+                                                }
+                                            )
+                                else:
+                                    pass
 
 update_time_school()

@@ -47,7 +47,7 @@ def check_email():
                     if extension_file != ".xlsx": # Check if file is xlsx
                         print("Check file")
                     else:
-                        if collection.find_one({"filename": att_fn}):
+                        if collection.find_one({"Filename": att_fn, "Send on Whatsapp": "no"}):
                             print("File already exists")
                             recheck_email()
                         else:
@@ -55,7 +55,7 @@ def check_email():
                                 fp.write(attachment.get('content').read())
                                 os.rename(download_path, f"{DOWNLOAD_FOLDER}/school_time.xlsx") # Rename file
                                 collection.delete_many({}) # Delete old file
-                                collection.insert_one({"filename": att_fn}) # Insert filename to MongoDB
+                                collection.insert_one({"Filename": att_fn, "Send on Whatsapp": "no"}) # Insert filename to MongoDB
                                 send_xlsx()
                 except:
                     print(traceback.print_exc())
@@ -70,7 +70,6 @@ def send_xlsx():
     from update_time_school import update_time_school
     update_time_school()
     os.remove(f"{DOWNLOAD_FOLDER}/school_time.xlsx") # Delete file
-    
     recheck_email()
     
 check_email()
