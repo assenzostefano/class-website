@@ -39,11 +39,11 @@ def homepage():
 @app.route('/orario')
 def orario():
     logging.info("A user went up: Orario")
-    url = "http://127.0.0.1:5000"
-    response = Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    webpage = urlopen(response).read()
+    #url = "http://127.0.0.1:5000"
+    #response = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    #webpage = urlopen(response).read()
     # Take all data from mongodb
-    dict = list(json.loads(webpage))
+    dict = list(collection.find({}, {"_id": 0, "School Subject": 1}))
     number = str(range(0,7))
     day = str(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"])
     return render_template('orario/orario.html', data=dict, number=number, day=day)

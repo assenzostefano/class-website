@@ -1,13 +1,8 @@
-from flask import Flask, render_template, request, redirect, session, url_for, jsonify
+from flask import Flask, jsonify
 from dotenv import load_dotenv
 from pymongo import MongoClient
-import requests
 import os
 import urllib
-import pymongo
-import datetime
-import requests
-import time
 
 app = Flask(__name__)
 load_dotenv() #Load .env file
@@ -26,4 +21,4 @@ def get_subjects():
     return jsonify(list(subjects))
 
 if __name__ == '__main__':
-   app.run()
+   app.run(debug=True)
