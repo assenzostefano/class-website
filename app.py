@@ -94,7 +94,7 @@ def register():
             user_data = records.find_one({"email": email})
             new_email = user_data['email']
             #if registered redirect to logged in as the registered user
-            return render_template('logged_in.html', email=new_email)
+            return render_template('logged_in/logged_in.html', email=new_email)
     return render_template('index.html')
 
 @app.route("/login", methods=["POST", "GET"])
@@ -120,17 +120,17 @@ def login():
                 if "email" in session:
                     return redirect(url_for("logged_in"))
                 message = 'Wrong password'
-                return render_template('login.html', message=message)
+                return render_template('login/login.html', message=message)
         else:
             message = 'Email not found'
-            return render_template('login.html', message=message)
-    return render_template('login.html', message=message)
+            return render_template('login/login.html', message=message)
+    return render_template('login/login.html', message=message)
 
 @app.route('/logged_in')
 def logged_in():
     if "email" in session:
         email = session["email"]
-        return render_template('logged_in.html', email=email)
+        return render_template('logged_in/logged_in.html', email=email)
     else:
         return redirect(url_for("login"))
 
@@ -138,7 +138,7 @@ def logged_in():
 def logout():
     if "email" in session:
         session.pop("email", None)
-        return render_template("signout.html")
+        return render_template("signout/signout.html")
     else:
         return render_template('index.html')
 
