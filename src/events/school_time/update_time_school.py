@@ -760,15 +760,16 @@ def update_time_school():
                                 gagaga_room = 0
 
                     # Look for other classes doing PE at the same time as us
-                    if school_subject == "CEAM  EDUCAZIONE ATTIVITA' MOTORIE" or school_subject == "CEAM EDUCAZIONE ATTIVITA' MOTORIE":
+                    if school_subject == "CEAM  EDUCAZIONE ATTIVITA' MOTORIE" or school_subject == "CEAM EDUCAZIONE ATTIVITA' MOTORIE" or search_motoria == "CEAM  EDUCAZIONE ATTIVITA' MOTORIA":
                         for c in range(1,100):
                             search_motoria = ws.cell(row=i, column=c).value
                             #print(search_motoria)
-                            if search_motoria == "CEAM  EDUCAZIONE ATTIVITA' MOTORIE" or search_motoria == "CEAM EDUCAZIONE ATTIVITA' MOTORIE":
+                            if search_motoria == "CEAM  EDUCAZIONE ATTIVITA' MOTORIE" or search_motoria == "CEAM EDUCAZIONE ATTIVITA' MOTORIE" or search_motoria == "CEAM  EDUCAZIONE ATTIVITA' MOTORIA":
                                 if c == column:
                                     pass
                                 else:
                                     search_class = ws.cell(row=3, column=c).value
+                                    print(search_class)
                                     collection.update_one(
                                         { "_id": ObjectId(array_document_school_time_table)},
                                         { "$set": {
