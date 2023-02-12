@@ -71,5 +71,4 @@ def send_xlsx():
     update_time_school()
     os.remove(f"{DOWNLOAD_FOLDER}/school_time.xlsx") # Delete file
     recheck_email()
-    
 check_email()
