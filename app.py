@@ -1,5 +1,5 @@
 from urllib.request import Request, urlopen
-from flask import Flask, render_template, url_for, request, redirect, session, flash
+from flask import Flask, render_template, url_for, request, redirect, session, flash, jsonify
 from flask_pymongo import PyMongo
 from dotenv import load_dotenv
 import bcrypt
@@ -24,6 +24,9 @@ app = Flask(__name__)
 app.secret_key = "testing"
 PASSWORD_MONGODB = os.getenv('PASSWORD_MONGODB') #Password for MongoDB
 URL_MONGODB = os.getenv('URL_MONGODB') #URL for MongoDB
+client = MongoClient("mongodb+srv://elci:" + urllib.parse.quote_plus(PASSWORD_MONGODB) + URL_MONGODB) #Connect to MongoDB
+database = client["website-class"] #Database name
+collection = database["school-time-table"] #Collection school time table current
 
 @app.route('/')
 def homepage():
@@ -39,6 +42,7 @@ def orario():
     url = "http://127.0.0.1:5000"
     response = Request(url, headers={"User-Agent": "Mozilla/5.0"})
     webpage = urlopen(response).read()
+    # Take all data from mongodb
     dict = list(json.loads(webpage))
     number = str(range(0,7))
     day = str(["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"])
