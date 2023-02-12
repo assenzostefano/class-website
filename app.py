@@ -31,7 +31,7 @@ collection = database["school-time-table"] #Collection school time table current
 @app.route('/')
 def homepage():
     logging.info("A user went up: Homepage")
-    return render_template('html/index.html')
+    return render_template('homepage.html')
     #imageList = os.listdir('static/images')
     #imageList = ['images/' + image for image in imageList]
     #return render_template('go.html', imageList=imageList)
