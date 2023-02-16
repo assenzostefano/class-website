@@ -6,5 +6,778 @@
   <body>
     <br>
     <center><h1>2 Elci</h1></center>
-    <img src="static/screenshot.png" alt="Orario scolastico">
+    <style type="text/css">
+      .ritz .waffle a {
+          color: inherit;
+      }
+  
+      .ritz .waffle .s5 {
+          border-right: 1px SOLID #000000;
+          background-color: #ffffff;
+          text-align: center;
+          color: #000000;
+          font-family: 'docs-Calibri', Arial;
+          font-size: 11pt;
+          vertical-align: bottom;
+          white-space: nowrap;
+          direction: ltr;
+          padding: 0px 3px 0px 3px;
+      }
+  
+      .ritz .waffle .s4 {
+          border-right: 1px SOLID #000000;
+          background-color: #ffffff;
+          text-align: left;
+          font-weight: bold;
+          color: #000000;
+          font-family: 'docs-Calibri', Arial;
+          font-size: 11pt;
+          vertical-align: bottom;
+          white-space: nowrap;
+          direction: ltr;
+          padding: 0px 3px 0px 3px;
+      }
+  
+      .ritz .waffle .s6 {
+          border-bottom: 1px SOLID #000000;
+          border-right: 1px SOLID #000000;
+          background-color: #ffffff;
+          text-align: left;
+          font-weight: bold;
+          color: #000000;
+          font-family: 'docs-Calibri', Arial;
+          font-size: 11pt;
+          vertical-align: bottom;
+          white-space: nowrap;
+          direction: ltr;
+          padding: 0px 3px 0px 3px;
+      }
+  
+      .ritz .waffle .s1 {
+          border-bottom: 1px SOLID #000000;
+          background-color: #ffffff;
+          text-align: left;
+          font-weight: bold;
+          color: #000000;
+          font-family: 'docs-Calibri', Arial;
+          font-size: 11pt;
+          vertical-align: bottom;
+          white-space: nowrap;
+          direction: ltr;
+          padding: 0px 3px 0px 3px;
+      }
+  
+      .ritz .waffle .s2 {
+          border-right: 1px SOLID #000000;
+          background-color: #ffffff;
+          text-align: center;
+          color: #000000;
+          font-family: 'docs-Calibri', Arial;
+          font-size: 11pt;
+          vertical-align: middle;
+          white-space: nowrap;
+          direction: ltr;
+          padding: 0px 3px 0px 3px;
+      }
+  
+      .ritz .waffle .s8 {
+          border-left: none;
+          background-color: #ffffff;
+          text-align: left;
+          font-weight: bold;
+          color: #000000;
+          font-family: 'docs-Calibri', Arial;
+          font-size: 11pt;
+          vertical-align: bottom;
+          white-space: nowrap;
+          direction: ltr;
+          padding: 0px 3px 0px 3px;
+      }
+  
+      .ritz .waffle .s9 {
+          border-bottom: 1px SOLID #000000;
+          border-right: 1px SOLID #000000;
+          background-color: #ffffff;
+          text-align: left;
+          font-weight: bold;
+          color: #000000;
+          font-family: 'docs-Calibri', Arial;
+          font-size: 11pt;
+          vertical-align: middle;
+          white-space: nowrap;
+          direction: ltr;
+          padding: 0px 3px 0px 3px;
+      }
+  
+      .ritz .waffle .s3 {
+          border-right: 1px SOLID #000000;
+          background-color: #ffffff;
+          text-align: left;
+          font-weight: bold;
+          color: #000000;
+          font-family: 'docs-Calibri', Arial;
+          font-size: 11pt;
+          vertical-align: middle;
+          white-space: nowrap;
+          direction: ltr;
+          padding: 0px 3px 0px 3px;
+      }
+  
+      .ritz .waffle .s0 {
+          border-bottom: 1px SOLID #000000;
+          background-color: #ffffff;
+          text-align: left;
+          color: #000000;
+          font-family: 'docs-Calibri', Arial;
+          font-size: 11pt;
+          vertical-align: bottom;
+          white-space: nowrap;
+          direction: ltr;
+          padding: 0px 3px 0px 3px;
+      }
+  
+      .ritz .waffle .s7 {
+          border-right: none;
+          background-color: #ffffff;
+          text-align: left;
+          font-weight: bold;
+          color: #000000;
+          font-family: 'docs-docs-Calibri', Arial;
+          font-size: 11pt;
+          vertical-align: bottom;
+          white-space: nowrap;
+          direction: ltr;
+          padding: 0px 3px 0px 3px;
+      }
+  </style>
+  <div class="ritz grid-container" dir="ltr" style="overflow-x:auto;">
+      <table class="waffle" cellspacing="0" cellpadding="0">
+          <tbody>
+              {% for i in data %}
+              <tr style="height: 19px">
+                  <td class="s0"></td>
+                  <td class="s1" colspan="2">Lunedì</td>
+                  <td class="s1" colspan="2">Martedì</td>
+                  <td class="s1" colspan="2">Mercoledì</td>
+                  <td class="s1" colspan="2">Giovedì</td>
+                  <td class="s1" colspan="2">Venerdì</td>
+              </tr>
+              <tr style="height: 21px">
+                  <td class="s2">7:55</td>
+                  <td class="s3" colspan="2">{{ i['School Subject']['Monday'][0]['Subject']}}</td>
+                  <td class="s3" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][0]['Subject']}}</td>
+                  <td class="s3" colspan="2">{{ i['School Subject']['Wednesday'][0]['Subject']}}</td>
+                  <td class="s3" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][0]['Subject']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][0]['Subject']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5"></td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Monday'][0]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][0]['Teacher']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Wednesday'][0]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][0]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][0]['Teacher']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5">08.55</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][0]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][0]['Room']}}</td>
+                  <td class="s6" colspan="2">{{ i['School Subject']['Wednesday'][0]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][0]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][0]['Room']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5">08.55</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Monday'][1]['Subject']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][1]['Subject']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Wednesday'][1]['Subject']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][1]['Subject']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][1]['Subject']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5"></td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Monday'][1]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][1]['Teacher']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Wednesday'][1]['Teacher']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][1]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][1]['Teacher']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5">09.55</td>
+                  <td class="s6" colspan="2">{{ i['School Subject']['Monday'][1]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][1]['Room']}}</td>
+                  <td class="s6" colspan="2">{{ i['School Subject']['Wednesday'][1]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][1]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][1]['Room']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5">09.55</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Monday'][2]['Subject']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][2]['Subject']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Wednesday'][2]['Subject']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][2]['Subject']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][2]['Subject']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5"></td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Monday'][2]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][2]['Teacher']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Wednesday'][2]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][2]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][2]['Teacher']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5">10.55</td>
+                  <td class="s6" colspan="2">{{ i['School Subject']['Monday'][2]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][2]['Room']}}</td>
+                  <td class="s6" colspan="2">{{ i['School Subject']['Wednesday'][2]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Thursday'][2]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][2]['Room']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5">11.10</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][3]['Subject']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][3]['Subject']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][3]['Subject']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][3]['Subject']}}</td>
+                  <td class="s7 softmerge" dir="ltr">
+                      <div class="softmerge-inner" colspan="2">{{ i['School Subject']['Friday'][3]['Subject']}}</div>
+                  </td>                
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5"></td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][3]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][3]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][3]['Teacher']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][3]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][3]['Teacher']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5">12.10</td>
+                  <td class="s9" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][3]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Tuesday'][3]['Room']}}</td>
+                  <td class="s9" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][3]['Room']}}</td>
+                  <td class="s6" colspan="2">{{ i['School Subject']['Thursday'][3]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][3]['Room']}}</td>
+              </tr>
+              <tr style="height: 19px">
+  
+                  <td class="s5">12.10</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][4]['Subject']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Tuesday'][4]['Subject']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][4]['Subject']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][4]['Subject']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][4]['Subject']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5"></td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][4]['Teacher']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Tuesday'][4]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][4]['Teacher']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][4]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][4]['Teacher']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5">13.10</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Monday'][4]['Room']}}</td>
+                  <td class="s6" colspan="2">{{ i['School Subject']['Tuesday'][4]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][4]['Room']}}</td>
+                  <td class="s6" colspan="2">{{ i['School Subject']['Thursday'][4]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][4]['Room']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5">13.10</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Monday'][5]['Subject']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Tuesday'][5]['Subject']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][5]['Subject']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][5]['Subject']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][5]['Subject']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5"></td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Monday'][5]['Teacher']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Tuesday'][5]['Teacher']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Wednesday'][5]['Teacher']}}</td>
+                  <td class="s4" colspan="2">{{ i['School Subject']['Thursday'][5]['Teacher']}}</td>
+                  <td class="s4" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][5]['Teacher']}}</td>
+              </tr>
+              <tr style="height: 19px">
+                  <td class="s5">14.10</td>
+                  <td class="s6" colspan="2">{{ i['School Subject']['Monday'][5]['Room']}}</td>
+                  <td class="s6" colspan="2">{{ i['School Subject']['Tuesday'][5]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Wednesday'][5]['Room']}}</td>
+                  <td class="s6" colspan="2">{{ i['School Subject']['Thursday'][5]['Room']}}</td>
+                  <td class="s6" dir="ltr" colspan="2">{{ i['School Subject']['Friday'][5]['Room']}}</td>
+              </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+      <br>
+      {% for i in data %}
+          {% if i['School Subject']['Monday'][0]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Lunedì alla prima ora siamo con: {{ i['School Subject']['Monday'][0]['PE with']}}</div>
+          {% endif %}
+  
+          {% if i['School Subject']['Monday'][1]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Lunedì alla seconda ora siamo con: {{ i['School Subject']['Monday'][1]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Monday'][2]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Lunedì alla terza ora siamo con: {{ i['School Subject']['Monday'][2]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Monday'][3]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Lunedì alla quarta ora siamo con: {{ i['School Subject']['Monday'][3]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Monday'][4]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Lunedì alla quinta ora siamo con: {{ i['School Subject']['Monday'][4]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Monday'][5]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Lunedì alla sesta ora siamo con: {{ i['School Subject']['Monday'][5]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][0]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Martedì alla prima ora siamo con: {{ i['School Subject']['Tuesday'][0]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][1]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Martedì alla seconda ora siamo con: {{ i['School Subject']['Tuesday'][1]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][2]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Martedì alla terza ora siamo con: {{ i['School Subject']['Tuesday'][2]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][3]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Martedì alla quarta ora siamo con: {{ i['School Subject']['Tuesday'][3]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][4]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Martedì alla quinta ora siamo con: {{ i['School Subject']['Tuesday'][4]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][5]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Martedì alla sesta ora siamo con: {{ i['School Subject']['Tuesday'][5]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][0]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Mercoledì alla prima ora siamo con: {{ i['School Subject']['Wednesday'][0]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][1]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Mercoledì alla seconda ora siamo con: {{ i['School Subject']['Wednesday'][1]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][2]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Mercoledì alla terza ora siamo con: {{ i['School Subject']['Wednesday'][2]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][3]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Mercoledì alla quarta ora siamo con: {{ i['School Subject']['Wednesday'][3]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][4]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Mercoledì alla quinta ora siamo con: {{ i['School Subject']['Wednesday'][4]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][5]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Mercoledì alla sesta ora siamo con: {{ i['School Subject']['Wednesday'][5]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][0]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Giovedì alla prima ora siamo con: {{ i['School Subject']['Thursday'][0]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][1]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Giovedì alla seconda ora siamo con: {{ i['School Subject']['Thursday'][1]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][2]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Giovedì alla terza ora siamo con: {{ i['School Subject']['Thursday'][2]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][3]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Giovedì alla quarta ora siamo con: {{ i['School Subject']['Thursday'][3]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][4]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) Giovedì alla quinta ora siamo con: {{ i['School Subject']['Thursday'][4]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][5]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) (Motoria) Giovedì alla sesta ora siamo con: {{ i['School Subject']['Thursday'][5]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][0]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) (Motoria) Venerdì alla prima ora siamo con: {{ i['School Subject']['Friday'][0]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][1]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) (Motoria) Venerdì alla seconda ora siamo con: {{ i['School Subject']['Friday'][1]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][2]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) (Motoria) Venerdì alla terza ora siamo con: {{ i['School Subject']['Friday'][2]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][3]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) (Motoria) Venerdì alla quarta ora siamo con: {{ i['School Subject']['Friday'][3]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][4]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) (Motoria) Venerdì alla quinta ora siamo con: {{ i['School Subject']['Friday'][4]['PE with']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][5]['PE with'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Motoria) (Motoria) Venerdì alla sesta ora siamo con: {{ i['School Subject']['Friday'][5]['PE with']}}</div>
+          {% endif %}
+          
+      {% endfor %}
+  
+      {% for i in data %}
+          {% if i['School Subject']['Monday'][0]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Lunedì (1 ora) le è occupato da: {{ i['School Subject']['Monday'][1]['le is busy']}}</div>
+          {% endif %}
+  
+          {% if i['School Subject']['Monday'][1]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Lunedì (2 ora) le è occupato da: {{ i['School Subject']['Monday'][1]['le is busy']}}</div>
+          {% endif %}
+  
+          {% if i['School Subject']['Monday'][2]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Lunedì (3 ora) le è occupato da: {{ i['School Subject']['Monday'][2]['le is busy']}}</div>
+          {% endif %}
+  
+          {% if i['School Subject']['Monday'][3]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Lunedì (4 ora) le è occupato da: {{ i['School Subject']['Monday'][3]['le is busy']}}</div>
+          {% endif %}
+  
+          {% if i['School Subject']['Monday'][4]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Lunedì (5 ora) le è occupato da: {{ i['School Subject']['Monday'][4]['le is busy']}}</div>
+          {% endif %}
+  
+          {% if i['School Subject']['Monday'][5]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Lunedì (6 ora) le è occupato da: {{ i['School Subject']['Monday'][5]['le is busy']}}</div>
+          {% endif %}
+  
+          {% if i['School Subject']['Tuesday'][0]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Martedì (1 ora) le è occupato da: {{ i['School Subject']['Tuesday'][0]['le is busy']}}</div>
+          {% endif %}
+  
+          {% if i['School Subject']['Tuesday'][1]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+          <div class="s7">(Martin) Martedì (2 ora) le è occupato da: {{ i['School Subject']['Tuesday'][1]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][2]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Martedì (3 ora) le è occupato da: {{ i['School Subject']['Tuesday'][2]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][3]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Martedì (4 ora) le è occupato da: {{ i['School Subject']['Tuesday'][3]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][4]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Martedì (5 ora) le è occupato da: {{ i['School Subject']['Tuesday'][4]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][5]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Martedì (6 ora) le è occupato da: {{ i['School Subject']['Tuesday'][5]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][0]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Mercoledì (1 ora) le è occupato da: {{ i['School Subject']['Wednesday'][0]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][1]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Mercoledì (2 ora) le è occupato da: {{ i['School Subject']['Wednesday'][1]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][2]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Mercoledì (3 ora) le è occupato da: {{ i['School Subject']['Wednesday'][2]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][3]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Mercoledì (4 ora) le è occupato da: {{ i['School Subject']['Wednesday'][3]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][4]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Mercoledì (5 ora) le è occupato da: {{ i['School Subject']['Wednesday'][4]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][5]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Mercoledì (6 ora) le è occupato da: {{ i['School Subject']['Wednesday'][5]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][0]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Giovedì (1 ora) le è occupato da: {{ i['School Subject']['Thursday'][0]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][1]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Giovedì (2 ora) le è occupato da: {{ i['School Subject']['Thursday'][1]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][2]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Giovedì (3 ora) le è occupato da: {{ i['School Subject']['Thursday'][2]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][3]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Giovedì (4 ora) le è occupato da: {{ i['School Subject']['Thursday'][2]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][4]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Giovedì (5 ora) le è occupato da: {{ i['School Subject']['Thursday'][4]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][5]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Giovedì (6 ora) le è occupato da: {{ i['School Subject']['Thursday'][5]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][0]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Venerdì (1 ora) le è occupato da: {{ i['School Subject']['Friday'][0]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][1]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Venerdì (2 ora) le è occupato da: {{ i['School Subject']['Friday'][1]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][2]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Venerdì (3 ora) le è occupato da: {{ i['School Subject']['Friday'][2]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][3]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Venerdì (4 ora) le è occupato da: {{ i['School Subject']['Friday'][3]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][4]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Venerdì (5 ora) le è occupato da: {{ i['School Subject']['Friday'][3]['le is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][5]['le is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Venerdì (6 ora) le è occupato da: {{ i['School Subject']['Friday'][5]['le is busy']}}</div>
+          {% endif %}
+      {% endfor %}
+      {% for i in data %}
+          {% if i['School Subject']['Monday'][0]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Lunedì (1 ora) le3 è occupato da: {{ i['School Subject']['Monday'][0]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Monday'][1]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Lunedì (2 ora) le3 è occupato da: {{ i['School Subject']['Monday'][1]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Monday'][2]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Lunedì (3 ora) le3 è occupato da: {{ i['School Subject']['Monday'][2]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Monday'][3]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Lunedì (4 ora) le3 è occupato da: {{ i['School Subject']['Monday'][3]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Monday'][4]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Lunedì (5 ora) le3 è occupato da: {{ i['School Subject']['Monday'][4]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Monday'][5]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Lunedì (6 ora) le3 è occupato da: {{ i['School Subject']['Monday'][5]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][0]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Martedì (1 ora) le3 è occupato da: {{ i['School Subject']['Tuesday'][0]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][1]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Martedì (2 ora) le3 è occupato da: {{ i['School Subject']['Tuesday'][1]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][2]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Martedì (3 ora) le3 è occupato da: {{ i['School Subject']['Tuesday'][2]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][3]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Martedì (4 ora) le3 è occupato da: {{ i['School Subject']['Tuesday'][3]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][4]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Martedì (5 ora) le3 è occupato da: {{ i['School Subject']['Tuesday'][4]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Tuesday'][5]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Martedì (6 ora) le3 è occupato da: {{ i['School Subject']['Tuesday'][5]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][0]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Mercoledì (1 ora) le3 è occupato da: {{ i['School Subject']['Wednesday'][0]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][1]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Mercoledì (2 ora) le3 è occupato da: {{ i['School Subject']['Wednesday'][1]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][2]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Mercoledì (3 ora) le3 è occupato da: {{ i['School Subject']['Wednesday'][2]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][3]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Mercoledì (4 ora) le3 è occupato da: {{ i['School Subject']['Wednesday'][3]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][4]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Mercoledì (5 ora) le3 è occupato da: {{ i['School Subject']['Wednesday'][4]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Wednesday'][5]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Mercoledì (6 ora) le3 è occupato da: {{ i['School Subject']['Wednesday'][5]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][0]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Giovedì (1 ora) le3 è occupato da: {{ i['School Subject']['Thursday'][0]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][1]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Giovedì (2 ora) le3 è occupato da: {{ i['School Subject']['Thursday'][1]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][2]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Giovedì (3 ora) le3 è occupato da: {{ i['School Subject']['Thursday'][2]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][3]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Giovedì (4 ora) le3 è occupato da: {{ i['School Subject']['Thursday'][3]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][4]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Giovedì (5 ora) le3 è occupato da: {{ i['School Subject']['Thursday'][4]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Thursday'][5]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Giovedì (6 ora) le3 è occupato da: {{ i['School Subject']['Thursday'][5]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][0]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Venerdì (1 ora) le3 è occupato da: {{ i['School Subject']['Friday'][0]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][1]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Venerdì (2 ora) le3 è occupato da: {{ i['School Subject']['Friday'][1]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][2]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Venerdì (3 ora) le3 è occupato da: {{ i['School Subject']['Friday'][2]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][3]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Venerdì (4 ora) le3 è occupato da: {{ i['School Subject']['Friday'][3]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][4]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Venerdì (5 ora) le3 è occupato da: {{ i['School Subject']['Friday'][4]['le3 is busy']}}</div>
+          {% endif %}
+          {% if i['School Subject']['Friday'][5]['le3 is busy'] == "" %}
+              <div class="s7"></div>
+          {% else %}
+              <div class="s7">(Martin) Venerdì (6 ora) le3 è occupato da: {{ i['School Subject']['Friday'][5]['le3 is busy']}}</div>
+          {% endif %}
+      {% endfor %}
+  </div>
   </body>
