@@ -465,7 +465,6 @@ def update_time_school():
                 for i in range(4,80):
                     day = str(ws.cell(row=i, column=3).value) # Get day from excel file
                     school_subject = ws.cell(row=i, column=column).value # Get school subject from excel file
-                    print(school_subject)
                     teacher = ws.cell(row=i, column=column+1).value
                     room = ws.cell(row=i, column=column+2).value
                     if dont_repeat == 9:
