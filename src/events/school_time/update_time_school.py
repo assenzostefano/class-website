@@ -465,6 +465,7 @@ def update_time_school():
                 for i in range(4,80):
                     day = str(ws.cell(row=i, column=3).value) # Get day from excel file
                     school_subject = ws.cell(row=i, column=column).value # Get school subject from excel file
+                    print(school_subject)
                     teacher = ws.cell(row=i, column=column+1).value
                     room = ws.cell(row=i, column=column+2).value
                     if dont_repeat == 9:
@@ -474,7 +475,7 @@ def update_time_school():
                             dont_repeat = 0
                     else:
                         if day == "None":
-                            if school_subject == 0: #If school subject is 0, add "" in MongoDB
+                            if school_subject == 0 or school_subject == "0": #If school subject is 0, add "" in MongoDB
                                 number += 1
                                 gagaga += 1
                                 dont_repeat += 1
@@ -533,7 +534,7 @@ def update_time_school():
                             array_test = []
                             array_test.append(convert_date_to_day)
                             number_day += 1
-                            if school_subject == 0: #If school subject is 0, add "" in MongoDB
+                            if school_subject == 0 or school_subject == "0": #If school subject is 0, add "" in MongoDB
                                 find_document_school_time_table = list(collection.find({}, {"Date": long_date}))
                                 find_document_archive_school_time_table = list(collection_archive.find({}, {"Date": long_date}))
                                 array_document_school_time_table = find_document_school_time_table[0]["_id"]
@@ -541,7 +542,7 @@ def update_time_school():
                                 collection.update_one(
                                     { "_id": ObjectId(array_document_school_time_table)},
                                     { "$set": {
-                                        "School Subject." + array_test[0] + "." + str(gagaga) + ".Subject": remove_things_in_front,
+                                        "School Subject." + array_test[0] + "." + str(gagaga) + ".Subject": school_subject,
                                     }
                                 }
                             )
@@ -760,7 +761,7 @@ def update_time_school():
                                 gagaga_room = 0
 
                     # Look for other classes doing PE at the same time as us
-                    if school_subject == "CEAM  EDUCAZIONE ATTIVITA' MOTORIE" or school_subject == "CEAM EDUCAZIONE ATTIVITA' MOTORIE" or search_motoria == "CEAM  EDUCAZIONE ATTIVITA' MOTORIA":
+                    if school_subject == "CEAM  EDUCAZIONE ATTIVITA' MOTORIE" or school_subject == "CEAM EDUCAZIONE ATTIVITA' MOTORIE" or school_subject == "CEAM  EDUCAZIONE ATTIVITA' MOTORIA":
                         for c in range(1,100):
                             search_motoria = ws.cell(row=i, column=c).value
                             #print(search_motoria)
@@ -783,7 +784,6 @@ def update_time_school():
                     # Search if class le3 is busy
                     for c in range(1,100):
                         search_other_subject = ws.cell(row=i, column=c).value
-                        search_room = ws.cell(row=i, column=c).value
                         if c == column:
                             pass
                         else:
