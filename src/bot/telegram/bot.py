@@ -1,10 +1,12 @@
 from bson.objectid import ObjectId
 from dotenv import load_dotenv
 from telebot import telebot
+import threading
 import datetime
 import schedule
 import pymongo
 import urllib
+import time
 import os
 
 load_dotenv()
@@ -36,6 +38,10 @@ def subscribe(message):
     )
     bot.send_message(message.chat.id, "You are subscribed")
 
+def recheck():
+    time.sleep(1)
+    send_notification()
+
 def send_notification():
     # Inserisci il giorno di oggi
     today = datetime.datetime.today().strftime('%A')
@@ -43,35 +49,46 @@ def send_notification():
     now = datetime.datetime.now()
     print(now.strftime("%H:%M"))
     finish = False
-    while finish == False:
-        if today == "Saturday" or today == "Sunday":
-            print("Today is weekend")
+    if today == "Saturday" or today == "Sunday":
+        print("Today is weekend")
+    else:
+        # Alla prima ora (7.50) manda una notifica a tutti gli utenti che hanno scritto /subscribe della materia della prima ora e così via
+        find_document = list(collection_schooltime.find({}, {"_id": 0, "School Subject": 1}))
+        collection_find_username = list(collection.find({}, {"username": 1,})) #Find all username in collection
+        array_username = collection_find_username[0]["username"] #Array with all username
+        #gaga = find_document['School Subject'][today][0]['Subject']
+        print(now.strftime("%H:%M"))
+        if now.strftime("%H:%M") == "07:50":
+            for i in find_document:
+                for b in array_username:
+                    bot.send_message(b, i['School Subject'][today][0]['Subject'])
+        elif now.strftime("%H:%M") == "08:53":
+            for i in find_document:
+                for b in array_username:
+                    bot.send_message(b, i['School Subject'][today][1]['Subject'])
+        elif now.strftime("%H:%M") == "09:53":
+            for i in find_document:
+                for b in array_username:
+                    bot.send_message(b, i['School Subject'][today][2]['Subject'])
+        elif now.strftime("%H:%M") == "10:53":
+            for i in find_document:
+                for b in array_username:
+                    bot.send_message(b, i['School Subject'][today][3]['Subject'])
+        elif now.strftime("%H:%M") == "12:08":
+            for i in find_document:
+                for b in array_username:
+                    bot.send_message(b, i['School Subject'][today][4]['Subject'])
+        elif now.strftime("%H:%M") == "13:08":
+            for i in find_document:
+                for b in array_username:
+                    bot.send_message(b, i['School Subject'][today][5]['Subject'])
         else:
-            # Alla prima ora (7.50) manda una notifica a tutti gli utenti che hanno scritto /subscribe della materia della prima ora e così via
-            find_document = list(collection_schooltime.find({}, {"_id": 0, "School Subject": 1}))
-            #gaga = find_document['School Subject'][today][0]['Subject']
-            if now.strftime("%H:%M") == "07:50":
-                for i in find_document:
-                    print(i['School Subject'][today][0]['Subject'])
-            elif now.strftime("%H:%M") == "08:53":
-                for i in find_document:
-                    print(i['School Subject'][today][1]['Subject'])
-            elif now.strftime("%H:%M") == "09:53":
-                for i in find_document:
-                    print(i['School Subject'][today][2]['Subject'])
-            elif now.strftime("%H:%M") == "10:53":
-                for i in find_document:
-                    print(i['School Subject'][today][3]['Subject'])
-            elif now.strftime("%H:%M") == "12:08":
-                for i in find_document:
-                    print(i['School Subject'][today][4]['Subject'])
-            elif now.strftime("%H:%M") == "13:08":
-                for i in find_document:
-                    print(i['School Subject'][today][5]['Subject'])
-                    finish == True
-            else:
-                pass
+            recheck()
+
+schedule.every().day.at("07:50").do(send_notification)
+now = datetime.datetime.now()
+t1 = threading.Thread(target=bot.polling).start()
 
 while True:
-    schedule.every().day.at("07:50").do(send_notification)
-    bot.polling()
+    print(now.strftime("%H:%M"))
+    schedule.run_pending()
