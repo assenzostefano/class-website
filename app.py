@@ -1,12 +1,9 @@
-from urllib.request import Request, urlopen
-from flask import Flask, render_template, url_for, request, redirect, session, flash, jsonify
-from flask_pymongo import PyMongo
-from dotenv import load_dotenv
-import bcrypt
-import urllib
+from flask import Flask, render_template, url_for, request, redirect, session
 from pymongo import MongoClient
+from dotenv import load_dotenv
 import logging
-import json
+import urllib
+import bcrypt
 import sys
 import os
 
@@ -54,7 +51,6 @@ def MongoDB():
     return records
 
 records = MongoDB()
-
 
 #assign URLs to have a particular route 
 @app.route("/register", methods=['post', 'get'])
