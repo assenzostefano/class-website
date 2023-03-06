@@ -58,32 +58,32 @@ def send_notification():
         if now.strftime("%H:%M") == "07:50":
             for i in find_document:
                 for b in array_username:
-                    bot.send_message(b, str(i['School Subject']['Monday'][0]['Room']) + ", " + i['School Subject']['Monday'][0]['Teacher'] + ", " + i['School Subject']['Monday'][0]['Subject'] + "\n" + "Successiva: " + str(i['School Subject']['Monday'][1]['Room']) + ", " + i['School Subject']['Monday'][1]['Teacher'] + ", " + i['School Subject']['Monday'][1]['Subject'])
+                    bot.send_message(b, str(i['School Subject'][today][0]['Room']) + ", " + i['School Subject'][today][0]['Teacher'] + ", " + i['School Subject'][today][0]['Subject'] + "\n" + "Successiva: " + str(i['School Subject'][today][1]['Room']) + ", " + i['School Subject'][today][1]['Teacher'] + ", " + i['School Subject'][today][1]['Subject'])
             recheck()
-        elif now.strftime("%H:%M") == "8:50":
+        elif now.strftime("%H:%M") == "08:50":
             for i in find_document:
                 for b in array_username:
-                    bot.send_message(b, str(i['School Subject']['Monday'][1]['Room']) + ", " + i['School Subject']['Monday'][1]['Teacher'] + ", " + str(i['School Subject']['Monday'][1]['Subject']) + "\n" + "Successiva: " + str(i['School Subject']['Monday'][2]['Room']) + ", " + i['School Subject']['Monday'][2]['Teacher'] + ", " + i['School Subject']['Monday'][2]['Subject'])
+                    bot.send_message(b, str(i['School Subject'][today][1]['Room']) + ", " + i['School Subject'][today][1]['Teacher'] + ", " + str(i['School Subject'][today][1]['Subject']) + "\n" + "Successiva: " + str(i['School Subject'][today][2]['Room']) + ", " + i['School Subject'][today][2]['Teacher'] + ", " + i['School Subject'][today][2]['Subject'])
             recheck()
-        elif now.strftime("%H:%M") == "9:50":
+        elif now.strftime("%H:%M") == "09:50":
             for i in find_document:
                 for b in array_username:
-                    bot.send_message(b, str(i['School Subject']['Monday'][2]['Room']) + ", " + i['School Subject']['Monday'][2]['Teacher'] + ", " + str(i['School Subject']['Monday'][2]['Subject']) + "\n" + "Successiva: " + str(i['School Subject']['Monday'][3]['Room']) + ", " + i['School Subject']['Monday'][3]['Teacher'] + ", " + i['School Subject']['Monday'][3]['Subject'])
+                    bot.send_message(b, str(i['School Subject'][today][2]['Room']) + ", " + i['School Subject'][today][2]['Teacher'] + ", " + str(i['School Subject'][today][2]['Subject']) + "\n" + "Successiva: " + str(i['School Subject'][today][3]['Room']) + ", " + i['School Subject'][today][3]['Teacher'] + ", " + i['School Subject'][today][3]['Subject'])
             recheck()
         elif now.strftime("%H:%M") == "11:05":
             for i in find_document:
                 for b in array_username:
-                    bot.send_message(b, str(i['School Subject']['Monday'][3]['Room']) + ", " + i['School Subject']['Monday'][3]['Teacher'] + ", " + str(i['School Subject']['Monday'][3]['Subject']) + "\n" + "Successiva: " + str(i['School Subject']['Monday'][4]['Room']) + ", " + i['School Subject']['Monday'][4]['Teacher'] + ", " + i['School Subject']['Monday'][4]['Subject'])
+                    bot.send_message(b, str(i['School Subject'][today][3]['Room']) + ", " + i['School Subject'][today][3]['Teacher'] + ", " + str(i['School Subject'][today][3]['Subject']) + "\n" + "Successiva: " + str(i['School Subject'][today][4]['Room']) + ", " + i['School Subject'][today][4]['Teacher'] + ", " + i['School Subject'][today][4]['Subject'])
             recheck()
         elif now.strftime("%H:%M") == "12:05":
             for i in find_document:
                 for b in array_username:
-                    bot.send_message(b, str(i['School Subject']['Monday'][4]['Room']) + ", " + i['School Subject']['Monday'][4]['Teacher'] + ", " + str(i['School Subject']['Monday'][4]['Subject']) + "\n" + "Successiva: " + str(i['School Subject']['Monday'][5]['Room']) + ", " + i['School Subject']['Monday'][5]['Teacher'] + ", " + i['School Subject']['Monday'][5]['Subject'])
+                    bot.send_message(b, str(i['School Subject'][today][4]['Room']) + ", " + i['School Subject'][today][4]['Teacher'] + ", " + str(i['School Subject'][today][4]['Subject']) + "\n" + "Successiva: " + str(i['School Subject'][today][5]['Room']) + ", " + i['School Subject'][today][5]['Teacher'] + ", " + i['School Subject'][today][5]['Subject'])
             recheck()
         elif now.strftime("%H:%M") == "13:05":
             for i in find_document:
                 for b in array_username:
-                    bot.send_message(b, str(i['School Subject']['Monday'][5]['Room']) + ", " + i['School Subject']['Monday'][5]['Teacher'] + ", " + str(i['School Subject']['Monday'][5]['Subject']))
+                    bot.send_message(b, str(i['School Subject'][today][5]['Room']) + ", " + i['School Subject'][today][5]['Teacher'] + ", " + str(i['School Subject'][today][5]['Subject']))
             recheck()
         elif now.strftime("%H:%M") == "21:00":
             if tomorrow == "Sunday" or tomorrow == "Saturday":
@@ -95,7 +95,7 @@ def send_notification():
         else:
             recheck()
 
-schedule.every().day.at("07:50").do(send_notification)
+schedule.every().day.at("16:16").do(send_notification)
 now = datetime.datetime.now()
 t1 = threading.Thread(target=bot.polling).start()
 
