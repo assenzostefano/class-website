@@ -95,7 +95,7 @@ def send_notification():
         else:
             recheck()
 
-schedule.every().day.at("16:25").do(send_notification)
+schedule.every().day.at("07:50").do(send_notification)
 now = datetime.datetime.now()
 t1 = threading.Thread(target=bot.polling).start()
 
