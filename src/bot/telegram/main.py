@@ -82,9 +82,9 @@ def send_notification():
                     for b in array_username:
                         bot.send_message(b, i['School Subject'][tomorrow][0]['Subject'] + ", " + i['School Subject'][tomorrow][0]['Teacher'] + "\n" + i['School Subject'][tomorrow][1]['Subject'] + ", " + i['School Subject'][tomorrow][1]['Teacher'] + "\n" + i['School Subject'][tomorrow][2]['Subject'] + ", " + i['School Subject'][tomorrow][2]['Teacher'] + "\n" + i['School Subject'][tomorrow][3]['Subject'] + ", " + i['School Subject'][tomorrow][3]['Teacher'] + "\n" + i['School Subject'][tomorrow][4]['Subject'] + ", " + i['School Subject'][tomorrow][4]['Teacher'] + "\n" + i['School Subject'][tomorrow][5]['Subject'] + ", " + i['School Subject'][tomorrow][5]['Teacher'])
 
-schedule.every().day.at("07:50").do(send_notification)
-schedule.every().day.at("08:50").do(send_notification)
-schedule.every().day.at("09:50").do(send_notification)
+schedule.every().day.at("7:50").do(send_notification)
+schedule.every().day.at("8:50").do(send_notification)
+schedule.every().day.at("9:50").do(send_notification)
 schedule.every().day.at("11:05").do(send_notification)
 schedule.every().day.at("12:05").do(send_notification)
 schedule.every().day.at("13:05").do(send_notification)
