@@ -93,6 +93,4 @@ now = datetime.datetime.now()
 t1 = threading.Thread(target=bot.polling).start()
 
 while True:
-    now = datetime.datetime.now()
-    print(now)
     schedule.run_pending()
