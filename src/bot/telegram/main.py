@@ -50,27 +50,27 @@ def send_notification():
         array_username = collection_find_username[0]["username"] #Array with all username
         #gaga = find_document['School Subject'][today][0]['Subject']
         print(now.strftime("%H:%M"))
-        if now.strftime("%H:%M") == "07:50":
+        if now.strftime("%H:%M") == "06:50":
             for i in find_document:
                 for b in array_username:
                     bot.send_message(b, str(i['School Subject'][today][0]['Room']) + ", " + i['School Subject'][today][0]['Teacher'] + ", " + i['School Subject'][today][0]['Subject'] + "\n" + "Successiva: " + str(i['School Subject'][today][1]['Room']) + ", " + i['School Subject'][today][1]['Teacher'] + ", " + i['School Subject'][today][1]['Subject'])            
-        elif now.strftime("%H:%M") == "08:50":
+        elif now.strftime("%H:%M") == "07:50":
             for i in find_document:
                 for b in array_username:
                     bot.send_message(b, str(i['School Subject'][today][1]['Room']) + ", " + i['School Subject'][today][1]['Teacher'] + ", " + str(i['School Subject'][today][1]['Subject']) + "\n" + "Successiva: " + str(i['School Subject'][today][2]['Room']) + ", " + i['School Subject'][today][2]['Teacher'] + ", " + i['School Subject'][today][2]['Subject'])            
-        elif now.strftime("%H:%M") == "09:50":
+        elif now.strftime("%H:%M") == "08:50":
             for i in find_document:
                 for b in array_username:
                     bot.send_message(b, str(i['School Subject'][today][2]['Room']) + ", " + i['School Subject'][today][2]['Teacher'] + ", " + str(i['School Subject'][today][2]['Subject']) + "\n" + "Successiva: " + str(i['School Subject'][today][3]['Room']) + ", " + i['School Subject'][today][3]['Teacher'] + ", " + i['School Subject'][today][3]['Subject'])            
-        elif now.strftime("%H:%M") == "11:05":
+        elif now.strftime("%H:%M") == "10:05":
             for i in find_document:
                 for b in array_username:
                     bot.send_message(b, str(i['School Subject'][today][3]['Room']) + ", " + i['School Subject'][today][3]['Teacher'] + ", " + str(i['School Subject'][today][3]['Subject']) + "\n" + "Successiva: " + str(i['School Subject'][today][4]['Room']) + ", " + i['School Subject'][today][4]['Teacher'] + ", " + i['School Subject'][today][4]['Subject'])
-        elif now.strftime("%H:%M") == "12:05":
+        elif now.strftime("%H:%M") == "11:05":
             for i in find_document:
                 for b in array_username:
                     bot.send_message(b, str(i['School Subject'][today][4]['Room']) + ", " + i['School Subject'][today][4]['Teacher'] + ", " + str(i['School Subject'][today][4]['Subject']) + "\n" + "Successiva: " + str(i['School Subject'][today][5]['Room']) + ", " + i['School Subject'][today][5]['Teacher'] + ", " + i['School Subject'][today][5]['Subject'])
-        elif now.strftime("%H:%M") == "13:05":
+        elif now.strftime("%H:%M") == "12:05":
             for i in find_document:
                 for b in array_username:
                     bot.send_message(b, str(i['School Subject'][today][5]['Room']) + ", " + i['School Subject'][today][5]['Teacher'] + ", " + str(i['School Subject'][today][5]['Subject']))
