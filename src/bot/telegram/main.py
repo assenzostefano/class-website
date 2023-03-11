@@ -1,7 +1,7 @@
 from bson.objectid import ObjectId
 from dotenv import load_dotenv
 from telebot import telebot
-import threading
+import time
 import datetime
 import schedule
 import pymongo
@@ -90,7 +90,8 @@ schedule.every().day.at("12:05").do(send_notification)
 schedule.every().day.at("13:05").do(send_notification)
 schedule.every().day.at("21:00").do(send_notification)
 now = datetime.datetime.now()
-t1 = threading.Thread(target=bot.polling).start()
+#t1 = threading.Thread(target=bot.polling).start()
 
 while True:
+    time.sleep(10)
     schedule.run_pending()
