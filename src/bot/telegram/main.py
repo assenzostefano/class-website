@@ -91,7 +91,6 @@ schedule.every().day.at("11:05").do(send_notification)
 schedule.every().day.at("12:05").do(send_notification)
 schedule.every().day.at("21:00").do(send_notification)
 now = datetime.datetime.now()
-t1 = threading.Thread(target=bot.polling).start()
 
 while True:
     time.sleep(10)
