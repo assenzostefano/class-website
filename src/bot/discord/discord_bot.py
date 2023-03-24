@@ -55,7 +55,7 @@ async def orario():
     for document in documents:
         for day in document['School Subject']:
             for i, subject in enumerate(document['School Subject'][day]):
-                if subject['Subject'] == "CALF1 LINGUA ITALIANA":
+                if subject['Subject'] == "LINGUA ITALIANA":
                     # Send a message on channel #general with the subject found and the index of the subject
                     options = Options() # Set options
                     options.add_argument("--headless") # Headless mode (so you don't see the browser)
@@ -67,14 +67,29 @@ async def orario():
 
                         driver.get_screenshot_as_file("screenshot.png")
                         driver.quit()
-                        channel = bot.get_channel(GENERAL_ID)
+                        channel = bot.get_channel(int(GENERAL_ID))
                         await channel.send(file=discord.File("screenshot.png"))
                         os.remove("screenshot.png")
                         send_screenshot += 1
                     else:
                         pass
-                    channel = bot.get_channel(GENERAL_ID)
-                    await channel.send(f"Day: {day}, Hour school: {i}, Subject found: {subject['Subject']} at index: {i}")
+                    if i == 0:
+                        i = "First hour"
+                    elif i == 1:
+                        i = "Second hour"
+                    elif i == 2:
+                        i = "Third hour"
+                    elif i == 3:
+                        i = "Fourth hour"
+                    elif i == 4:
+                        i = "Fifth hour"
+                    elif i == 5:
+                        i = "Sixth hour"
+                    elif i == 6:
+                        i = "Seventh hour"
+                    elif i == 7:
+                        i = "Eighth hour"
+                    await channel.send(f"Day: {day}, Hour school: {i}, Subject found: {subject['Subject']}")
     send_screenshot = 0
 
 
