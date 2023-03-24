@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from telebot import telebot
 import time
 import datetime
+import threading
 import time
 import schedule
 import pymongo
@@ -75,9 +76,12 @@ def send_notification():
             for i in find_document:
                 for b in array_username:
                     bot.send_message(b, str(i['School Subject'][today][5]['Room']) + ", " + i['School Subject'][today][5]['Teacher'] + ", " + str(i['School Subject'][today][5]['Subject']))
-        elif now.strftime("%H:%M") == "21:00":
+        elif now.strftime("%H:%M") == "20:00":
             if tomorrow == "Sunday" or tomorrow == "Saturday":
-                print("Nope")
+                if tomorrow == "Monday":
+                    for i in find_document:
+                        for b in array_username:
+                            bot.send_message(b, i['School Subject'][tomorrow][0]['Subject'] + ", " + i['School Subject'][tomorrow][0]['Teacher'] + "\n" + i['School Subject'][tomorrow][1]['Subject'] + ", " + i['School Subject'][tomorrow][1]['Teacher'] + "\n" + i['School Subject'][tomorrow][2]['Subject'] + ", " + i['School Subject'][tomorrow][2]['Teacher'] + "\n" + i['School Subject'][tomorrow][3]['Subject'] + ", " + i['School Subject'][tomorrow][3]['Teacher'] + "\n" + i['School Subject'][tomorrow][4]['Subject'] + ", " + i['School Subject'][tomorrow][4]['Teacher'] + "\n" + i['School Subject'][tomorrow][5]['Subject'] + ", " + i['School Subject'][tomorrow][5]['Teacher'])
             else:
                 for i in find_document:
                     for b in array_username:
@@ -89,9 +93,9 @@ schedule.every().day.at("08:50").do(send_notification)
 schedule.every().day.at("10:05").do(send_notification)
 schedule.every().day.at("11:05").do(send_notification)
 schedule.every().day.at("12:05").do(send_notification)
-schedule.every().day.at("21:00").do(send_notification)
+schedule.every().day.at("20:00").do(send_notification)
 now = datetime.datetime.now()
-#t1 = threading.Thread(target=bot.polling).start()
+t1 = threading.Thread(target=bot.polling).start()
 
 while True:
     time.sleep(10)

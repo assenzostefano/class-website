@@ -90,10 +90,18 @@ async def change_school_time(
                     "Select hour school",
                     choices=["First hour", "Second hour", "Third hour", "Fourth hour", "Fifth hour", "Sixth hour", "Seventh hour", "Eighth hour", "Ninth hour"],
                     required=True,
-                    ), text: str
+                    ), text: str,
+    teacher: Option(str,
+                    "Write teacher",
+                    required=False,
+    ),
+    room: Option(str,
+                    "Write room school",
+                    required=False,
+    ),
 ):
     
-    await ctx.respond(f"Day selected: {day}, Hour school selected: {hour_school}, Text: {text}")
+    await ctx.respond(f"Day selected: {day}, Hour school selected: {hour_school}, Text: {text}, Teacher: {teacher} ,Room: {room}")
     # Update the subject on MongoDB
     if hour_school == "First hour":
         hour_school = "0"
@@ -120,6 +128,18 @@ async def change_school_time(
         {"_id": ObjectId(array_document)},
         {"$set": {f"School Subject.{day}.{int(hour_school)}.Subject": text}}
     )
+
+    if teacher != None:
+        collection.update_one(
+            {"_id": ObjectId(array_document)},
+            {"$set": {f"School Subject.{day}.{int(hour_school)}.Teacher": teacher}}
+        )
+
+    if room != None:
+        collection.update_one(
+            {"_id": ObjectId(array_document)},
+            {"$set": {f"School Subject.{day}.{int(hour_school)}.Room": room}}
+        )
 
 @bot.slash_command(name='confirm', description='Confirm change school time')
 async def confirm(ctx : ApplicationContext):
