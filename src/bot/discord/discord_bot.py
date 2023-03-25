@@ -44,13 +44,14 @@ bot = discord.Bot()
 async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
     bot.loop.create_task(orario())
+    orario.start()
 
 # Search on MongoDB the subject and send a message on Discord if the subject is found
-@tasks.loop(seconds=1)
+@tasks.loop(seconds=10)
 async def orario():
     documents = collection.find()
     send_screenshot = 0
-
+    print("Searching for subject...")
     # Iterate through the documents
     for document in documents:
         for day in document['School Subject']:
@@ -64,7 +65,6 @@ async def orario():
                         driver = webdriver.Firefox(options=options)
                         driver.get('http://127.0.0.1:4999/orario')
                         time.sleep(5)
-
                         driver.get_screenshot_as_file("screenshot.png")
                         driver.quit()
                         channel = bot.get_channel(int(GENERAL_ID))
@@ -159,7 +159,17 @@ async def change_school_time(
 @bot.slash_command(name='confirm', description='Confirm change school time')
 async def confirm(ctx : ApplicationContext):
     await ctx.respond(f"Confirm")
-    collection_email.update_one({}, {"$set": {"Send on Whatsapp": "yes"}})
+    options = Options() # Set options
+    options.add_argument("--headless") # Headless mode (so you don't see the browser)
+    options.add_argument('--disable-gpu') # Disable GPU
+    driver = webdriver.Firefox(options=options)
+    driver.get('http://127.0.0.1:4999/orario')
+    driver.get_screenshot_as_file("screenshot.png")
+    driver.quit()
+    channel = bot.get_channel(int(GENERAL_ID))
+    await channel.send(file=discord.File("screenshot.png"))
+    os.remove("screenshot.png")
+    
 #@bot.slash_command()
 #@discord.default_permissions(ban_members = True, administrator = True)
 #async def ban(ctx, member: Option(discord.Member, description="Select a member", required=True), reason: Option(str, description="Reason", required=True)):
@@ -176,4 +186,6 @@ async def confirm(ctx : ApplicationContext):
 #async def clear(ctx, messages: Option(int, description="Amount of messages to delete", required=True)):
 #    clear_msg.clear_messages(ctx, amount = messages)
 
-bot.run(DISCORD_TOKEN)
+while True:
+    bot.run(DISCORD_TOKEN)
+    orario.start()

@@ -58,32 +58,162 @@ WebDriverWait(browser, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/b
 # Click on the "Next Day" button to go to the next day's tasks
 next_day_button = WebDriverWait(browser, 250).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]')))
 
-def wait_recheck():
+def wait_homework():
+    browser.quit()
     time.sleep(10800)
+    check_homework()
 
 def check_homework():
-    for i in range(1, 10):
+    for i in range(0, 10):
         try:
+            print(i)
+            date = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[1]"))).text)
+            subject = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/h2"))).text)
+            teacher = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/span"))).text)
             text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text)
+            print(date)
+            print(subject)
             print(text1)
+            # Search on MongoDB if the date is already present on the database
+            if collection.find_one({"Date": date}) is None:
+                collection.insert_one({"Date": date, "Homework": 
+                    {
+                        "Subject": subject,
+                        "Description": text1,
+                        "Teacher": teacher}
+                    }
+                )
+            else:
+                collection.update_one(
+                    {"Date": date},
+                    {"$addToSet": {"Homework": 
+                    {
+                        "Subject": subject,
+                        "Description": text1,
+                        "Teacher": teacher}
+                    }}
+                )
+            
+            subject = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/h2"))).text)
+            teacher = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/span"))).text)
             text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/div/ul/li/p"))).text)
+            print(subject)
+            print(teacher)
             print(text1)
-            text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text)
-            print(text1)
-            text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text)
-            print(text1)
-            text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text)
-            print(text1)
-            WebDriverWait(browser, 250).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]'))).click() # Click on next day button
+            if collection.find_one({"Date": date}) is None:
+                collection.insert_one({"Date": date, "Homework": 
+                    {
+                        "Subject": subject,
+                        "Description": text1,
+                        "Teacher": teacher}
+                    }
+                )
+            else:
+                collection.update_one(
+                    {"Date": date},
+                    {"$addToSet": {"Homework": 
+                    {
+                        "Subject": subject,
+                        "Description": text1,
+                        "Teacher": teacher}
+                    }}
+                )
+            try:
+                subject = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/h2"))).text)
+                teacher = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/span"))).text)
+                text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text)
+                print(subject)
+                print(teacher)
+                print(text1)
+                if collection.find_one({"Date": date}) is None:
+                    collection.insert_one({"Date": date, "Homework": 
+                    {
+                        "Subject": subject,
+                        "Description": text1,
+                        "Teacher": teacher}
+                    }
+                )
+                else:
+                    collection.update_one(
+                        {"Date": date},
+                        {"$addToSet": {"Homework": 
+                        {
+                            "Subject": subject,
+                            "Description": text1,
+                            "Teacher": teacher}
+                        }}
+                    )
+            except:
+                subject = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/h2"))).text)
+                teacher = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/span"))).text)
+                text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text)
+                print(subject)
+                print(teacher)
+                print(text1)
+                if collection.find_one({"Date": date}) is None:
+                    collection.insert_one({"Date": date, "Homework": 
+                        {
+                            "Subject": subject,
+                            "Description": text1,
+                            "Teacher": teacher}
+                        }
+                    )
+                else:
+                    collection.update_one(
+                        {"Date": date},
+                        {"$addToSet": {"Homework": 
+                        {
+                            "Subject": subject,
+                            "Description": text1,
+                            "Teacher": teacher}
+                        }}
+                    )
+                
+                try:
+                    subject = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/h2"))).text)
+                    teacher = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/span"))).text)
+                    text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text)
+                    print(subject)
+                    print(teacher)
+                    print(text1)
+                    if collection.find_one({"Date": date}) is None:
+                        collection.insert_one({"Date": date, "Homework": 
+                            {
+                                "Subject": subject,
+                                "Description": text1,
+                                "Teacher": teacher}
+                            }
+                        )
+                    else:
+                        collection.update_one(
+                            {"Date": date},
+                            {"$addToSet": {"Homework": 
+                            {
+                                "Subject": subject,
+                                "Description": text1,
+                                "Teacher": teacher}
+                            }}
+                        )
+                    WebDriverWait(browser, 250).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]'))).click() # Click on next day button
+                except:
+                    WebDriverWait(browser, 250).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]'))).click()
         except:
             try:
+                date = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[1]"))).text)
                 text = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/p"))).text)
+                print(date)
                 print(text)
+                if collection.find_one({"Date": date}) is None:
+                    collection.insert_one({"Date": date, "Homework": [text]})
+                else:
+                    collection.update_one(
+                        {"Date": date},
+                        {"$addToSet": {"Homework": text}}
+                    )
                 WebDriverWait(browser, 250).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]'))).click() # Click on next day button
             except:
                 WebDriverWait(browser, 250).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]'))).click() # Click on next day button
 
-    browser.quit()
-    wait_recheck()
+    wait_homework()
 
 check_homework()
