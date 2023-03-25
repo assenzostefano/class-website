@@ -1,62 +1,89 @@
-# Import file for check homework
-from day_one import day_one
-
-# Libraries for open and use Firefox
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
+import pymongo
+from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
-from selenium import webdriver
-
-# Libraries for MongoDB and .env file
-from dotenv import load_dotenv
-import urllib.parse
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 import datetime
-import pymongo
-import time
+from dotenv import load_dotenv
 import os
+import urllib.parse
+import time
 
-#Load .env file
+# Disable GPU for Firefox
+options = Options()
+options.add_argument('--disable-gpu')
+
+# Disable showing Firefox window
+options.headless = True
+
 load_dotenv() #Load .env file
 USERNAME = os.getenv('USERNAME_NUVOLA') #Username for Nuvola
 PASSWORD = os.getenv('PASSWORD_NUVOLA') #Password for Nuvola
 PASSWORD_MONGODB = os.getenv('PASSWORD_MONGODB') #Password for MongoDB
 URL_MONGODB = os.getenv('URL_MONGODB') #URL for MongoDB
+# Initialize the browser with the given options
+browser = webdriver.Firefox(options=options)
+
+# Wait for up to 10 seconds for elements to appear
+wait = WebDriverWait(browser, 10)
+
+# Connect to the MongoDB database
 mongo_url = "mongodb+srv://elci:" + urllib.parse.quote_plus(PASSWORD_MONGODB) + URL_MONGODB #URL for MongoDB (with password)
 client = pymongo.MongoClient(mongo_url) #Connect to MongoDB
-database = client["website-class"] #Database name
-collection = database["homework"] #Collection school time table current
+db = client["website-class"]
 
-# Options for Firefox
-options = Options() # Set options
-options.add_argument("--headless") # Headless mode (so you don't see the browser)
-options.add_argument('--disable-gpu') # Disable GPU
+# Get today's date as a string in the format "YYYY-MM-DD"
+today = datetime.datetime.now().strftime("%Y-%m-%d")
 
-def start_search():
-    #time.sleep(7200)
-    global driver
-    driver = webdriver.Firefox(options=options) # Open Firefox and set options
-    driver.get("https://nuvola.madisoft.it/login")  # Open Nuvola website
-    username = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "username")))  # Wait for the username input
-    password = WebDriverWait(driver, 100).until(EC.element_to_be_clickable((By.ID, "password")))  # Wait for the password input
+# Get the collection for today's data
+collection = db["homework"]
 
-    username.click()
-    username.clear()
-    username.send_keys(USERNAME)  # Insert username
-    password.click()
-    password.clear()
-    password.send_keys(PASSWORD)  # Insert password
-    WebDriverWait(driver, 50).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[2]/div/div[2]/form/button"))).click() # Click on login button
+# Initialize the URL for Cloud
+url = 'https://nuvola.madisoft.it/login'
 
-    # Section Homework
-    WebDriverWait(driver, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/div[1]/nav/div/div/a[6]"))).click() # Click on homework button
-    
-    homework_check()
+browser.get(url)
+username = WebDriverWait(browser, 100).until(EC.element_to_be_clickable((By.ID, "username")))  # Wait for the username input
+password = WebDriverWait(browser, 100).until(EC.element_to_be_clickable((By.ID, "password")))  # Wait for the password input
+username.click()
+username.clear()
+username.send_keys(USERNAME)  # Insert username
+password.click()
+password.clear()
+password.send_keys(PASSWORD)  # Insert password
+WebDriverWait(browser, 50).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[2]/div/div[2]/form/button"))).click() # Click on login button
+# Section Homework
+WebDriverWait(browser, 250).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div/div/div[1]/nav/div/div/a[6]"))).click() # Click on homework button
 
-def homework_check():
-    day_one.giorno_uno(driver, collection)
-    driver.close()
-    print("Finish")
-    start_search()
+# Click on the "Next Day" button to go to the next day's tasks
+next_day_button = WebDriverWait(browser, 250).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]')))
 
-start_search()
+def wait_recheck():
+    time.sleep(10800)
+
+def check_homework():
+    for i in range(1, 10):
+        try:
+            text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[1]/div/ul/li/p"))).text)
+            print(text1)
+            text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[2]/div/ul/li/p"))).text)
+            print(text1)
+            text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[3]/div/ul/li/p"))).text)
+            print(text1)
+            text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[4]/div/ul/li/p"))).text)
+            print(text1)
+            text1 = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/div[2]/div/ul/li[5]/div/ul/li/p"))).text)
+            print(text1)
+            WebDriverWait(browser, 250).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]'))).click() # Click on next day button
+        except:
+            try:
+                text = str(WebDriverWait(browser, 250).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div/div/main/div/p"))).text)
+                print(text)
+                WebDriverWait(browser, 250).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]'))).click() # Click on next day button
+            except:
+                WebDriverWait(browser, 250).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/main/div/div/div[1]/div[1]/div[1]/button[3]'))).click() # Click on next day button
+
+    browser.quit()
+    wait_recheck()
+
+check_homework()
