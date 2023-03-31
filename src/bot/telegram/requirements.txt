@@ -10,3 +10,4 @@ telebot==0.0.5
 schedule==1.1.0
 pymongo==4.3.3
 urllib3==1.26.13
+pytz==2022.6

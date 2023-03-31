@@ -1,6 +1,9 @@
+#import src.bot.discord.discord_bot
+
 from flask import Flask, render_template, url_for, request, redirect, session
 from pymongo import MongoClient
 from dotenv import load_dotenv
+import threading
 import logging
 import urllib
 import bcrypt
@@ -135,6 +138,10 @@ def logout():
         return render_template("signout/signout.html")
     else:
         return render_template('index.html')
+
+# Threading discord_bot.py
+#import src.events.school_time.email_read # Start email_read.py
+#x = threading.Thread(target=os.system('python src/bot/discord/discord_bot.py')).start()
 
 if __name__ == '__main__':
    logging.info("Web server started!") 

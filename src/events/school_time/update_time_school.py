@@ -826,64 +826,44 @@ def update_time_school():
                                             )
                                 else:
                                     pass
+#
+                    docs = collection.find()
 
-                    #for i in range(1,5):
-                    #    # Search on Mongodb every first hour of the day if is egual to CALF1 LINGUA ITALIANA
-                    #    print(i)
-                    #    find_document_school_time_table = list(collection.find({}, {"Date": long_date}))
-                    #    array_document_school_time_table = find_document_school_time_table[0]["_id"]
-                    #    print([array_test[0]])
-                    #    # Print Subject 0 Monday
-                    #    print(array_document_school_time_table[0]["School Subject"][array_test[0]][0]["Subject"])
-
-                    for i in range(0 , 5):
-                        for x in collection.find({},{ "Date": long_date, "School Subject": 1, "_id": 0}):
-                            testgaga = x['School Subject'][array_test[0]][0]['Subject']
-                            print(testgaga)
-                            if testgaga == "0" or testgaga == 0 or testgaga == None:
-                                collection.update_one(
-                                            { "_id": ObjectId(array_document_school_time_table)},
-                                            { "$set": {
-                                                "School Subject." + array_test[0] + "." + str(i)+ ".Subject": "",
-                                            }
-                                        }   
-                                    )
-                                collection.update_one(
-                                            { "_id": ObjectId(array_document_school_time_table)},
-                                            { "$set": {
-                                                "School Subject." + array_test[0] + "." + str(i)+ ".Teacher": "",
-                                            }
-                                        }   
-                                    )
-                                collection.update_one(
-                                            { "_id": ObjectId(array_document_school_time_table)},
-                                            { "$set": {
-                                                "School Subject." + array_test[0] + "." + str(i)+ ".Room": "",
-                                            }
-                                        }   
-                                    )
-                            else:
-                                try:
-                                    remove_things_in_front = testgaga.split(' ', 1)[1]
-                                    if remove_things_in_front == "ITALIANA" or remove_things_in_front == "ELETTRICO":
-                                        if remove_things_in_front == "ELETTRICO":
-                                            remove_things_in_front = "LAB. ELETTRICO"
-                                            collection.update_one(
-                                            { "_id": ObjectId(array_document_school_time_table)},
-                                            { "$set": {
-                                                "School Subject." + array_test[0] + "." + str(i)+ ".Subject": remove_things_in_front,
-                                            }
-                                        }   
-                                    )
-                                        pass
-                                    else:
-                                        collection.update_one(
-                                            { "_id": ObjectId(array_document_school_time_table)},
-                                            { "$set": {
-                                                "School Subject." + array_test[0] + "." + str(i)+ ".Subject": remove_things_in_front,
-                                            }
-                                        }   
-                                    )
-                                except:
-                                    pass
+                    # Iterate over each document
+                    for doc in docs:
+                        # Access the ObjectId field of the document
+                        doc_id = doc["_id"]
+                        day = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+                        for i in range(0, 5):
+                            pomate = doc["School Subject"][day[i]][0]['Subject']
+                            try:
+                                remove_things_in_front = pomate.split(' ', 1)[1]
+                                if remove_things_in_front == "ITALIANA":
+                                    collection.update_one(
+                                        { "_id": ObjectId(doc_id)},
+                                        { "$set": {
+                                            "School Subject." + day[i] + ".0.Subject": "LINGUA ITALIANA",
+                                        }
+                                    }
+                                )
+                                elif remove_things_in_front == "ELETTRICO":
+                                    collection.update_one(
+                                        { "_id": ObjectId(doc_id)},
+                                        { "$set": {
+                                            "School Subject." + day[i] + ".0.Subject": "LAB. ELETTRICO",
+                                        }
+                                    }
+                                )
+                                else:
+                                    collection.update_one(
+                                        { "_id": ObjectId(doc_id)},
+                                        { "$set": {
+                                            "School Subject." + day[i] + ".0.Subject": remove_things_in_front,
+                                        }
+                                    }
+                                )
+                            except:
+                                pass
+                            
+                            
 update_time_school()

@@ -1,4 +1,4 @@
-from commands.moderation import ban, kick, clear_msg
+#from commands.moderation import ban, kick, clear_msg
 from discord.commands.context import ApplicationContext # Discord
 from selenium.webdriver.firefox.options import Options # Selenium
 from discord.commands import Option # Discord
@@ -56,7 +56,7 @@ async def orario():
     for document in documents:
         for day in document['School Subject']:
             for i, subject in enumerate(document['School Subject'][day]):
-                if subject['Subject'] == "LINGUA ITALIANA":
+                if subject['Subject'] == "LINGUA ITALIANA" or "ITALIANA":
                     # Send a message on channel #general with the subject found and the index of the subject
                     options = Options() # Set options
                     options.add_argument("--headless") # Headless mode (so you don't see the browser)
